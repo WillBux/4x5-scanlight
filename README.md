@@ -46,6 +46,17 @@ Additional parts:
 - 4x M2x10mm socket head cap screws
 - 8x M2 square nuts (DIN 562)
 
+### Status and the Future
+
+The code has not been finalized. 
+USB-PD and the dimming of the LEDs are working as expected. 
+I have not implemented the screen or rotary encoder input. 
+
+
+In the distant future I plan on incorporating this into my enlarger to print 4x5 (and 120) negatives.
+I no longer shoot 35mm and probably will not produce a 35mm mask for scanning and printing.
+If you only shoot 35mm I recommend using Jack's design as it is smaller and cheaper. 
+
 ## license
 
 The PCB schematic, layout, and Gerber files and the 3D CAD files for this project are released under the CERN Open Hardware Licence Version 2 - Weakly Reciprocal (CERN-OHL-W V2). 
