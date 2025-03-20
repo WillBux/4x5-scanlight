@@ -1,19 +1,32 @@
-Reference,Value,Footprint,Qty,DNP,MPN
-"C1,C3,C6",10u,Capacitor_SMD:C_1210_3225Metric,3,,Generic 10uF 50V 1210 X7R
-"C2,C4,C5,C7",1u,Capacitor_SMD:C_0603_1608Metric,4,,Generic 1uF 25V 0603 X7R
-"D1,D2,D3,D4,D5,D6",deep blue,LED_SMD:LED_PLCC_2835_Handsoldering,6,,JE2835ARY-N-0002A0000-N0000001
-"D7,D8,D15",B240A,Diode_SMD:D_SMA,3,,B240A-13-F
-"D9,D10,D11,D12,D13,D14",green,LED_SMD:LED_PLCC_2835_Handsoldering,6,,JE2835AGR-N-0002A0000-N0000001
-"D16,D17,D18,D19,D20,D21",deep red,LED_SMD:LED_PLCC_2835_Handsoldering,6,,67-21S/NDR3C-P5080C1C51827Z15/2T
-"H1,H2,H3,H4,H5,H6",MountingHole,Custom:MountingHole_2.2mm_M2_Mask_5mm,6,,
-J3,PJ-002AH,Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal,1,,PJ-002AH
-J6,USB_C_Receptacle_USB2.0,Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,1,,USB4105-GF-A
-"L1,L2,L3",100u,Inductor_SMD:L_Bourns_SRN8040TA,3,,HPC 8040NV-101M
-"R1,R4,R9,R10,R11,R12",1.4,Resistor_SMD:R_1206_3216Metric,6,,RK73H2ATTD1R40F
-"R2,R3,R5",649k,Resistor_SMD:R_0603_1608Metric,3,,Generic 649KOhm 0603 1%
-R6,100k,Resistor_SMD:R_0603_1608Metric,1,,Generic 100KOhm 0603 5%
-"R7,R8",5.1k,Resistor_SMD:R_0603_1608Metric,2,,Generic 5.1KOhm 0603 5%
-"RV1,RV2,RV3",100k,Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical,3,,PTV09A-4020U-B104
-SYM101,SYM_Hot_Large,Custom:hot-surface_1x,1,,
-"U1,U3,U4",AL8860WT,Package_TO_SOT_SMD:TSOT-23-5,3,,AL8860WT-7
-U2,IP2721,Package_SO:TSSOP-16_4.4x5mm_P0.65mm,1,,IP2721
+"Reference","Value","Footprint","Qty","DNP","MPN"
+"C1,C2","330p","Capacitor_SMD:C_0603_1608Metric","2","","Generic 330pF 50V C0G/NP0 0603"
+"C3","4.7u","Capacitor_SMD:C_0805_2012Metric","1","","Generic 4.7uF 50V X7R 0805 "
+"C4,C8,C9,C14,C15,C18,C19,C22","1u","Capacitor_SMD:C_0603_1608Metric","8","","Generic 1uF 50V X7R 0603 X7R"
+"C5,C6","0.1u","Capacitor_SMD:C_0603_1608Metric","2","","Generic 0.1uF 50V X7R 0603 "
+"C7,C11,C13","47n","Capacitor_SMD:C_0805_2012Metric","3","","Generic 0.047uF 50V X7R 0805"
+"C10,C12,C16,C17,C20,C21","10u","Capacitor_SMD:C_1210_3225Metric","6","","Generic 10uF 50V X7R 1210"
+"D1","BAT54K","Diode_SMD:D_SOD-523","1","","BAT54KFILM"
+"D2","ESDA25P35","Diode_SMD:ST_QFN-2L_1.6x1.0mm","1","","ESDA25P35-1U1M"
+"D3,D4,D6,D7,D8,D21","B240A","Diode_SMD:D_SMA","6","","B240A-13-F"
+"D5,D9,D12,D15,D20,D24,D27,D31,D34,D38,D41,D44","red","LED_SMD:LED_PLCC_2835_Handsoldering_Reverse","12","","L1SP-DRD0002800000"
+"D10,D13,D17,D18,D22,D25,D29,D32,D33,D37,D39,D43","green","LED_SMD:LED_PLCC_2835_Handsoldering","12","","JE2835AGR-N-0002A0000-N0000001"
+"D11,D14,D16,D19,D23,D26,D28,D30,D35,D36,D40,D42","blue","LED_SMD:LED_PLCC_2835_Handsoldering","12","","JE2835ARY-N-0002A0000-N0000001"
+"J1","UJ20-C-H-G-SMT-P16-TR","Custom:USB_C_Receptacle_UJ20-C-H-G-SMT-P16-TR","1","","UJ20-C-H-G-SMT-P16-TR"
+"J2","SWD_TC2030","Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical","1","",""
+"L1,L2,L3,L4,L5,L6","100u","Inductor_SMD:L_Bourns_SRN8040TA","6","","HPC 8040NV-101M "
+"Q1","STL11N3LLH6","Custom:POWERFLAT-3p3X3p3_STM","1","","STL11N3LLH6"
+"R1,R10","10k","Resistor_SMD:R_0603_1608Metric","2","","Generic 10kΩ 5% 0603 "
+"R2","100k","Resistor_SMD:R_0603_1608Metric","1","","Generic 100kΩ 1% 0603"
+"R3","620","Resistor_SMD:R_0603_1608Metric","1","","Generic 620Ω 1% 0603"
+"R4","200k","Resistor_SMD:R_0603_1608Metric","1","","Generic 200kΩ 1% 0603"
+"R5,R7,R8","4.7k","Resistor_SMD:R_0603_1608Metric","3","","Generic 4.7kΩ 1% 0603"
+"R6,R11,R12,R13,R14,R15,R16,R17,R18,R19,R20,R21","845m","Resistor_SMD:R_1206_3216Metric","12","","Generic 845mΩ 1% 1206"
+"R9","40.2k","Resistor_SMD:R_0603_1608Metric","1","","Generic 40.2kΩ 1% 0603"
+"SW1","BOOT","Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm","1","",""
+"SW2","RotaryEncoder_Switch_MP","Rotary_Encoder:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm","1","","EC11E"
+"U1","0.91 Inch OLED","Display:0.91_Inch_OLED","1","","Monochrome OLED 0.91"" 128x32 (Aliexpress)"
+"U2","ECMF02-2AMX6","Package_DFN_QFN:ST_UQFN-6L_1.5x1.7mm_P0.5mm","1","","ECMF02-2AMX6"
+"U3","STM32G0B1CBUx","Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm","1","","STM32G0B1CBU6"
+"U4","TCPP01_M12","Custom:QFN-12-1EP_3x3mm_P0.50mm_EP1.45x1.45mm","1","","TCPP01_M12"
+"U5,U7,U8,U9,U10,U11","AL8860WT","Package_TO_SOT_SMD:TSOT-23-5","6","","AL8860WT-7"
+"U6","ST732M33R","Package_TO_SOT_SMD:TSOT-23-5","1","","ST732M33R"
