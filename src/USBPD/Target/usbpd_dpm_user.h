@@ -59,6 +59,7 @@ typedef struct
   uint16_t PID;               /*!< Product ID (assigned by the manufacturer)              */
 } USBPD_IdSettingsTypeDef;
 /* USER CODE BEGIN Typedef */
+
 #if !defined(USBPD_REV_MAJOR)
 #define USBPD_REV_MAJOR      (3U)    /* USBPD Specification revision major */
 #define USBPD_REV_MINOR      (1U)    /* USBPD Specification revision minor */
@@ -92,7 +93,6 @@ typedef struct
   uint32_t                      DPM_RcvRequestDOMsg;                     /*!< Received request Power Data Object message from the port Partner     */
   uint32_t                      DPM_RequestDOMsgPrevious;                /*!< Previous Request Power Data Object message to be sent                */
 
-
   USBPD_PPSSDB_TypeDef          DPM_RcvPPSStatus;                        /*!< PPS Status received by port partner                                  */
   USBPD_SKEDB_TypeDef           DPM_RcvSNKExtendedCapa;                  /*!< SNK Extended Capability received by port partner                     */
 
@@ -102,11 +102,14 @@ typedef struct
   uint32_t                      DPM_RequestedVoltage;                    /*!< Value of requested voltage                                           */
   uint32_t                      DPM_RequestedCurrent;                    /*!< Value of requested current                                           */
 } USBPD_HandleTypeDef;
+
 /* USER CODE END Typedef */
 
 /* Exported define -----------------------------------------------------------*/
 /* USER CODE BEGIN Define */
+
 #define DPM_NO_SRC_PDO_FOUND   0xFFU /*!< No match found between Received SRC PDO and SNK capabilities */
+
 /* USER CODE END Define */
 
 /* Exported constants --------------------------------------------------------*/

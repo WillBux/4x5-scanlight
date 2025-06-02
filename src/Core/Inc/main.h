@@ -89,6 +89,13 @@ void Error_Handler(void);
 #define R_GPIO_Port GPIOA
 #define R_IQSW_Pins (R_SW_Pin | R_Q_Pin | R_I_Pin)
 #define R_IQ_Pins R_Q_PIN | R_I_PIN
+#define PWM_R_Pin GPIO_PIN_0
+#define PWM_R_Port GPIOA
+#define PWM_G_Pin GPIO_PIN_1
+#define PWM_G_Port GPIOA
+#define PWM_B_Pin GPIO_PIN_2
+#define PWM_B_Port GPIOA
+
 
 /* USER CODE END Private defines */
 

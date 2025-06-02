@@ -86,6 +86,7 @@
   * @{
   */
 /* USER CODE BEGIN Private_Variables */
+
 /**
   * @brief  USBPD Port PDO Storage array declaration
   */
@@ -119,12 +120,12 @@ USBPD_PWR_Port_PDO_Storage_TypeDef PWR_Port_PDO_Storage[USBPD_PORT_COUNT];
 USBPD_StatusTypeDef USBPD_PWR_IF_Init(void)
 {
 /* USER CODE BEGIN USBPD_PWR_IF_Init */
-	  USBPD_StatusTypeDef _status = USBPD_OK;
+  USBPD_StatusTypeDef _status = USBPD_OK;
 
-	  PWR_Port_PDO_Storage[USBPD_PORT_0].SinkPDO.ListOfPDO = (uint32_t *)PORT0_PDO_ListSNK;
-	  PWR_Port_PDO_Storage[USBPD_PORT_0].SinkPDO.NumberOfPDO = &USBPD_NbPDO[0];
+  PWR_Port_PDO_Storage[USBPD_PORT_0].SinkPDO.ListOfPDO = (uint32_t *)PORT0_PDO_ListSNK;
+  PWR_Port_PDO_Storage[USBPD_PORT_0].SinkPDO.NumberOfPDO = &USBPD_NbPDO[0];
 
-	  return _status;
+  return _status;
 /* USER CODE END USBPD_PWR_IF_Init */
 }
 
@@ -220,26 +221,26 @@ void USBPD_PWR_IF_GetPortPDOs(uint8_t PortNum, USBPD_CORE_DataInfoType_TypeDef D
       memcpy(Ptr,PORT0_PDO_ListSNK, sizeof(uint32_t) * PORT0_NB_SINKPDO);
     }
 /* USER CODE BEGIN USBPD_PWR_IF_GetPortPDOs */
-    if (DataId == USBPD_CORE_DATATYPE_SRC_PDO)
-    {
-  #if defined (_GUI_INTERFACE)
-      *Size = USBPD_NbPDO[1];
-      memcpy(Ptr,PORT0_PDO_ListSRC, sizeof(uint32_t) * USBPD_NbPDO[1]);
-  #else
-      *Size = PORT0_NB_SOURCEPDO;
-      memcpy(Ptr,PORT0_PDO_ListSRC, sizeof(uint32_t) * PORT0_NB_SOURCEPDO);
-  #endif /* _GUI_INTERFACE */
-    }
-    else
-    {
-  #if defined (_GUI_INTERFACE)
-      *Size = USBPD_NbPDO[0];
-      memcpy(Ptr,PORT0_PDO_ListSNK, sizeof(uint32_t) * USBPD_NbPDO[0]);
-  #else
-      *Size = PORT0_NB_SINKPDO;
-      memcpy(Ptr,PORT0_PDO_ListSNK, sizeof(uint32_t) * PORT0_NB_SINKPDO);
-  #endif /* _GUI_INTERFACE */
-    }
+  if (DataId == USBPD_CORE_DATATYPE_SRC_PDO)
+  {
+#if defined (_GUI_INTERFACE)
+    *Size = USBPD_NbPDO[1];
+    memcpy(Ptr,PORT0_PDO_ListSRC, sizeof(uint32_t) * USBPD_NbPDO[1]);
+#else
+    *Size = PORT0_NB_SOURCEPDO;
+    memcpy(Ptr,PORT0_PDO_ListSRC, sizeof(uint32_t) * PORT0_NB_SOURCEPDO);
+#endif /* _GUI_INTERFACE */
+  }
+  else
+  {
+#if defined (_GUI_INTERFACE)
+    *Size = USBPD_NbPDO[0];
+    memcpy(Ptr,PORT0_PDO_ListSNK, sizeof(uint32_t) * USBPD_NbPDO[0]);
+#else
+    *Size = PORT0_NB_SINKPDO;
+    memcpy(Ptr,PORT0_PDO_ListSNK, sizeof(uint32_t) * PORT0_NB_SINKPDO);
+#endif /* _GUI_INTERFACE */
+  }
 
 /* USER CODE END USBPD_PWR_IF_GetPortPDOs */
 }

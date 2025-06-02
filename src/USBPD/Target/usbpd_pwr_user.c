@@ -27,6 +27,7 @@
 #endif /* _TRACE */
 
 /* USER CODE BEGIN include */
+
 #include "app_tcpp.h"
 
 /* USER CODE END include */
@@ -916,25 +917,25 @@ __weak int32_t BSP_USBPD_PWR_VBUSSetVoltage_APDO(uint32_t Instance,
 __weak int32_t BSP_USBPD_PWR_VBUSGetVoltage(uint32_t Instance, uint32_t *pVoltage)
 {
   /* USER CODE BEGIN BSP_USBPD_PWR_VBUSGetVoltage */
-  /* Check if instance is valid       */
-	  /* Check if instance is valid */
-	  int32_t ret = BSP_ERROR_NONE;
-	  if ((Instance >= USBPD_PWR_INSTANCES_NBR) || (NULL == pVoltage))
-	  {
-	    ret = BSP_ERROR_WRONG_PARAM;
-	    *pVoltage = 0;
-	  }
-	  else
-	  {
-	    uint32_t value;
-		uint32_t vadc;
-		uint32_t voltage;
-	    value = LL_ADC_REG_ReadConversionData12(ADC1);
-		vadc = (value * VDDA_APPLI) / ADC_FULL_SCALE;
-	    voltage = vadc * (200 + 40.2 ) / 40.2 ;
-	    *pVoltage = voltage;
-	  }
-	  return ret;
+
+  /* Check if instance is valid */
+  int32_t ret = BSP_ERROR_NONE;
+  if ((Instance >= USBPD_PWR_INSTANCES_NBR) || (NULL == pVoltage))
+  {
+    ret = BSP_ERROR_WRONG_PARAM;
+    *pVoltage = 0;
+  }
+  else
+  {
+    uint32_t value;
+	uint32_t vadc;
+	uint32_t voltage;
+    value = LL_ADC_REG_ReadConversionData12(TCPP01_PORT0_VSENSE_ADC_INSTANCE);
+	vadc = (value * VDDA_APPLI) / ADC_FULL_SCALE;
+    voltage = vadc * (USBPD_PWR_VSENSE_RA + USBPD_PWR_VSENSE_RB ) / USBPD_PWR_VSENSE_RB ;
+    *pVoltage = voltage;
+  }
+  return ret;
   /* USER CODE END BSP_USBPD_PWR_VBUSGetVoltage */
 }
 
@@ -950,6 +951,7 @@ __weak int32_t BSP_USBPD_PWR_VBUSGetVoltage(uint32_t Instance, uint32_t *pVoltag
 __weak int32_t BSP_USBPD_PWR_VBUSGetCurrent(uint32_t Instance, int32_t *pCurrent)
 {
   /* USER CODE BEGIN BSP_USBPD_PWR_VBUSGetCurrent */
+
   /* Check if instance is valid */
   int32_t ret = BSP_ERROR_NONE;
   if ((Instance >= USBPD_PWR_INSTANCES_NBR) || (NULL == pCurrent))
