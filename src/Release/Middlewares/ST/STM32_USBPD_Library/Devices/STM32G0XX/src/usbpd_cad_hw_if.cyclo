@@ -1,7 +1,0 @@
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_cad_hw_if.c:1148:6:CAD_Check_HW_SNK	4
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_cad_hw_if.c:421:10:CAD_StateMachine_SNK	14
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_cad_hw_if.c:238:6:CAD_Init	1
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_cad_hw_if.c:376:6:CAD_Enter_ErrorRecovery	1
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_cad_hw_if.c:393:10:CAD_SRC_Set_ResistorRp	1
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_cad_hw_if.c:405:10:CAD_Set_ResistorRp	1
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_cad_hw_if.c:923:10:CAD_StateMachine	9

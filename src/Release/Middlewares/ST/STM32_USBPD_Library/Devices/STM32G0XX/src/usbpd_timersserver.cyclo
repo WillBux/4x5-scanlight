@@ -1,4 +1,0 @@
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_timersserver.c:47:6:USBPD_TIM_Init	4
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_timersserver.c:91:6:USBPD_TIM_DeInit	2
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_timersserver.c:106:6:USBPD_TIM_Start	5
-../Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/src/usbpd_timersserver.c:133:10:USBPD_TIM_IsExpired	5
