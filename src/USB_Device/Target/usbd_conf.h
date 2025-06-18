@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : usbd_conf.h
-  * @version        : v3.0_Cube
-  * @brief          : Header for usbd_conf.c file.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : usbd_conf.h
+ * @version        : v3.0_Cube
+ * @brief          : Header for usbd_conf.c file.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -38,31 +38,31 @@
 /* USER CODE END INCLUDE */
 
 /** @addtogroup USBD_OTG_DRIVER
-  * @brief Driver for Usb device.
-  * @{
-  */
+ * @brief Driver for Usb device.
+ * @{
+ */
 
 /** @defgroup USBD_CONF USBD_CONF
-  * @brief Configuration file for Usb otg low level driver.
-  * @{
-  */
+ * @brief Configuration file for Usb otg low level driver.
+ * @{
+ */
 
 /** @defgroup USBD_CONF_Exported_Variables USBD_CONF_Exported_Variables
-  * @brief Public variables.
-  * @{
-  */
+ * @brief Public variables.
+ * @{
+ */
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 /* USER CODE END PV */
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup USBD_CONF_Exported_Defines USBD_CONF_Exported_Defines
-  * @brief Defines for configuration of the Usb device.
-  * @{
-  */
+ * @brief Defines for configuration of the Usb device.
+ * @{
+ */
 
 /*---------- -----------*/
 #define USBD_MAX_NUM_INTERFACES     1U
@@ -71,32 +71,24 @@
 /*---------- -----------*/
 #define USBD_MAX_STR_DESC_SIZ     512U
 /*---------- -----------*/
-#define USBD_SUPPORT_USER_STRING_DESC     1U
-/*---------- -----------*/
 #define USBD_DEBUG_LEVEL     0U
 /*---------- -----------*/
 #define USBD_LPM_ENABLED     1U
 /*---------- -----------*/
 #define USBD_SELF_POWERED     1U
-/*---------- -----------*/
-#define USBD_DFU_MAX_ITF_NUM     1U
-/*---------- -----------*/
-#define USBD_DFU_XFER_SIZE     1024U
-/*---------- -----------*/
-#define USBD_DFU_APP_DEFAULT_ADD     0x08000000U
 
 /****************************************/
 /* #define for FS and HS identification */
 #define DEVICE_FS 		0
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup USBD_CONF_Exported_Macros USBD_CONF_Exported_Macros
-  * @brief Aliases.
-  * @{
-  */
+ * @brief Aliases.
+ * @{
+ */
 
 /* Memory management macros make sure to use static memory allocation */
 /** Alias for memory allocation. */
@@ -141,38 +133,38 @@
 #endif
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup USBD_CONF_Exported_Types USBD_CONF_Exported_Types
-  * @brief Types.
-  * @{
-  */
+ * @brief Types.
+ * @{
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup USBD_CONF_Exported_FunctionsPrototype USBD_CONF_Exported_FunctionsPrototype
-  * @brief Declaration of public functions for Usb device.
-  * @{
-  */
+ * @brief Declaration of public functions for Usb device.
+ * @{
+ */
 
 /* Exported functions -------------------------------------------------------*/
-void *USBD_static_malloc(uint32_t size);
+void* USBD_static_malloc(uint32_t size);
 void USBD_static_free(void *p);
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 #ifdef __cplusplus
 }

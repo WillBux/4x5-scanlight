@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.h
+ * @brief          : Header for main.c file.
+ *                   This file contains the common defines of the application.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -29,6 +29,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32g0xx_hal.h"
 
+#include "stm32g0xx_ll_crc.h"
 #include "stm32g0xx_ll_ucpd.h"
 #include "stm32g0xx_ll_bus.h"
 #include "stm32g0xx_ll_cortex.h"
@@ -43,6 +44,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "eeprom_emul.h"
 
 /* USER CODE END Includes */
 
@@ -67,6 +69,9 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+void USB_ProcessReceivedData(uint8_t *Buf, uint32_t Len);
+void R_SW_EXTI_Handler(void);
+void R_IQ_EXTI_Handler(void);
 
 /* USER CODE END EFP */
 
@@ -95,7 +100,10 @@ void Error_Handler(void);
 #define PWM_G_Port GPIOA
 #define PWM_B_Pin GPIO_PIN_2
 #define PWM_B_Port GPIOA
-
+#define SDA_Pin GPIO_PIN_6
+#define SDA_Port GPIOA
+#define SCL_Pin GPIO_PIN_7
+#define SDA_Port GPIOA
 
 /* USER CODE END Private defines */
 

@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    ADC_SNK.c
-  * @author  DFD Application Team
-  * @brief   Header file for TCPP_Conf.c
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    ADC_SNK.c
+ * @author  DFD Application Team
+ * @brief   Header file for TCPP_Conf.c
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 
 #ifdef __cplusplus
  extern "C" {
@@ -27,11 +27,10 @@
 extern "C" {
 #endif
 
-extern ADC_HandleTypeDef            hadc1;
+extern ADC_HandleTypeDef hadc1;
 
-void ADC_Start()
-{
-  HAL_ADC_Start(&hadc1);
+void ADC_Start() {
+	HAL_ADC_Start(&hadc1);
 }
 
 #ifdef __cplusplus

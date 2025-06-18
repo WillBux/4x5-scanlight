@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    usbpd_pdo_defs.h
-  * @author  MCD Application Team
-  * @brief   Header file for definition of PDO/APDO values for 2 ports(DRP/SNK) configuration
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    usbpd_pdo_defs.h
+ * @author  MCD Application Team
+ * @brief   Header file for definition of PDO/APDO values for 2 ports(DRP/SNK) configuration
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 #ifndef __USBPD_PDO_DEF_H_
@@ -42,28 +42,26 @@
 /* Exported typedef ----------------------------------------------------------*/
 /* USER CODE BEGIN typedef */
 /**
-  * @brief  USBPD Port PDO Structure definition
-  *
-  */
+ * @brief  USBPD Port PDO Structure definition
+ *
+ */
 
- /**
-   * @brief  USBPD Port PDO Structure definition
-   */
- typedef struct
- {
-   uint32_t *ListOfPDO;                          /*!< Pointer on Power Data Objects list, defining port capabilities */
-   uint8_t  *NumberOfPDO;                        /*!< Number of Power Data Objects defined in ListOfPDO
-                                                 This parameter must be set at max to @ref USBPD_MAX_NB_PDO value */
- } USBPD_PortPDO_TypeDef;
+/**
+ * @brief  USBPD Port PDO Structure definition
+ */
+typedef struct {
+	uint32_t *ListOfPDO; /*!< Pointer on Power Data Objects list, defining port capabilities */
+	uint8_t *NumberOfPDO; /*!< Number of Power Data Objects defined in ListOfPDO
+	 This parameter must be set at max to @ref USBPD_MAX_NB_PDO value */
+} USBPD_PortPDO_TypeDef;
 
- /**
-   * @brief  USBPD Port PDO Storage Structure definition
-   */
+/**
+ * @brief  USBPD Port PDO Storage Structure definition
+ */
 
-typedef struct
-{
-  USBPD_PortPDO_TypeDef    SourcePDO;            /*!< SRC Power Data Objects */
-  USBPD_PortPDO_TypeDef    SinkPDO;              /*!< SNK Power Data Objects */
+typedef struct {
+	USBPD_PortPDO_TypeDef SourcePDO; /*!< SRC Power Data Objects */
+	USBPD_PortPDO_TypeDef SinkPDO; /*!< SNK Power Data Objects */
 
 } USBPD_PWR_Port_PDO_Storage_TypeDef;
 /* USER CODE END typedef */

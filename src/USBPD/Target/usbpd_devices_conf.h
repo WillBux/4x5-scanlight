@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    usbpd_devices_conf.h
-  * @author  MCD Application Team
-  * @brief   This file contains the device define.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    usbpd_devices_conf.h
+ * @author  MCD Application Team
+ * @brief   This file contains the device define.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 #ifndef USBPD_DEVICE_CONF_H
@@ -46,8 +46,8 @@ extern "C" {
 /* Private define ------------------------------------------------------------*/
 
 /* -----------------------------------------------------------------------------
-      usbpd_hw.c
--------------------------------------------------------------------------------*/
+ usbpd_hw.c
+ -------------------------------------------------------------------------------*/
 
 /* defined used to configure function : USBPD_HW_GetUSPDInstance */
 #define UCPD_INSTANCE0 UCPD1
@@ -85,8 +85,8 @@ extern "C" {
                                     } while(0)
 
 /* -----------------------------------------------------------------------------
-      Definitions for timer service feature
--------------------------------------------------------------------------------*/
+ Definitions for timer service feature
+ -------------------------------------------------------------------------------*/
 #define TIMX                           TIM1
 #define TIMX_CLK_ENABLE                LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM1)
 #define TIMX_CLK_DISABLE               LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_TIM1)

@@ -1,21 +1,21 @@
 /**
-  ******************************************************************************
-  * @file    stm32g0xx_hal.h
-  * @author  MCD Application Team
-  * @brief   This file contains all the functions prototypes for the HAL
-  *          module driver.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2018 STMicroelectronics. 
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    stm32g0xx_hal.h
+ * @author  MCD Application Team
+ * @brief   This file contains all the functions prototypes for the HAL
+ *          module driver.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2018 STMicroelectronics. 
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef STM32G0xx_HAL_H
@@ -29,51 +29,50 @@ extern "C" {
 #include "stm32g0xx_hal_conf.h"
 
 /** @addtogroup STM32G0xx_HAL_Driver
-  * @{
-  */
+ * @{
+ */
 
 /** @defgroup HAL HAL
-  * @{
-  */
+ * @{
+ */
 
 /* Exported types ------------------------------------------------------------*/
 /** @defgroup HAL_TICK_FREQ Tick Frequency
-  * @{
-  */
-typedef enum
-{
-  HAL_TICK_FREQ_10HZ         = 100U,
-  HAL_TICK_FREQ_100HZ        = 10U,
-  HAL_TICK_FREQ_1KHZ         = 1U,
-  HAL_TICK_FREQ_DEFAULT      = HAL_TICK_FREQ_1KHZ
+ * @{
+ */
+typedef enum {
+	HAL_TICK_FREQ_10HZ = 100U,
+	HAL_TICK_FREQ_100HZ = 10U,
+	HAL_TICK_FREQ_1KHZ = 1U,
+	HAL_TICK_FREQ_DEFAULT = HAL_TICK_FREQ_1KHZ
 } HAL_TickFreqTypeDef;
 /**
-  * @}
-  */
+ * @}
+ */
 
 /* Exported constants --------------------------------------------------------*/
 /** @defgroup HAL_Exported_Constants HAL Exported Constants
-  * @{
-  */
+ * @{
+ */
 
 /** @defgroup SYSCFG_Exported_Constants SYSCFG Exported Constants
-  * @{
-  */
+ * @{
+ */
 
 /** @defgroup SYSCFG_BootMode Boot Mode
-  * @{
-  */
+ * @{
+ */
 #define SYSCFG_BOOT_MAINFLASH          0x00000000U                      /*!< Main Flash memory mapped at 0x0000 0000   */
 #define SYSCFG_BOOT_SYSTEMFLASH        SYSCFG_CFGR1_MEM_MODE_0          /*!< System Flash memory mapped at 0x0000 0000 */
 #define SYSCFG_BOOT_SRAM               (SYSCFG_CFGR1_MEM_MODE_1 | SYSCFG_CFGR1_MEM_MODE_0)  /*!< Embedded SRAM mapped at 0x0000 0000 */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup SYSCFG_Break Break
-  * @{
-  */
+ * @{
+ */
 #define SYSCFG_BREAK_SP                SYSCFG_CFGR2_SPL    /*!< Enables and locks the SRAM Parity error signal with Break Input of TIM1/15/16/17 */
 #if defined(SYSCFG_CFGR2_PVDL)
 #define SYSCFG_BREAK_PVD               SYSCFG_CFGR2_PVDL   /*!< Enables and locks the PVD connection with TIM1/15/16/17 Break Input and also the PVDE and PLS bits of the Power Control Interface */
@@ -81,13 +80,13 @@ typedef enum
 #define SYSCFG_BREAK_LOCKUP            SYSCFG_CFGR2_CLL    /*!< Enables and locks the LOCKUP output of CortexM0+ with Break Input of TIM1/15/16/17 */
 #define SYSCFG_BREAK_ECC               SYSCFG_CFGR2_ECCL   /*!< Enables and locks the ECC of CortexM0+ with Break Input of TIM1/15/16/17 */
 /**
-  * @}
-  */
+ * @}
+ */
 
 #if defined(SYSCFG_CDEN_SUPPORT)
 /** @defgroup SYSCFG_ClampingDiode Clamping Diode
-  * @{
-  */
+ * @{
+ */
 #define SYSCFG_CDEN_PA1                SYSCFG_CFGR2_PA1_CDEN    /*!< Enables Clamping Diode on PA1 */
 #define SYSCFG_CDEN_PA3                SYSCFG_CFGR2_PA3_CDEN    /*!< Enables Clamping Diode on PA3 */
 #define SYSCFG_CDEN_PA5                SYSCFG_CFGR2_PA5_CDEN    /*!< Enables Clamping Diode on PA5 */
@@ -98,23 +97,23 @@ typedef enum
 #define SYSCFG_CDEN_PB2                SYSCFG_CFGR2_PB2_CDEN    /*!< Enables Clamping Diode on PB2 */
 
 /**
-  * @}
-  */
+ * @}
+ */
 #endif /* SYSCFG_CDEN_SUPPORT */
 
 /** @defgroup HAL_Pin_remapping Pin remapping
-  * @{
-  */
+ * @{
+ */
 /* Only available on cut2.0 */
 #define SYSCFG_REMAP_PA11                   SYSCFG_CFGR1_PA11_RMP       /*!< PA11 pad behaves digitally as PA9 GPIO pin */
 #define SYSCFG_REMAP_PA12                   SYSCFG_CFGR1_PA12_RMP       /*!< PA12 pad behaves digitally as PA10 GPIO pin */
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup HAL_IR_ENV_SEL IR Modulation Envelope signal selection
-  * @{
-  */
+ * @{
+ */
 #define HAL_SYSCFG_IRDA_ENV_SEL_TIM16     (SYSCFG_CFGR1_IR_MOD_0 & SYSCFG_CFGR1_IR_MOD_1)    /*!< 00: Timer16 is selected as IR Modulation envelope source */
 #define HAL_SYSCFG_IRDA_ENV_SEL_USART1    (SYSCFG_CFGR1_IR_MOD_0)                            /*!< 01: USART1 is selected as IR Modulation envelope source */
 #if defined(USART4)
@@ -124,49 +123,49 @@ typedef enum
 #endif /* USART4 */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup HAL_IR_POL_SEL IR output polarity selection
-  * @{
-  */
+ * @{
+ */
 #define HAL_SYSCFG_IRDA_POLARITY_NOT_INVERTED     0x00000000U                                /*!< 00: IR output polarity not inverted */
 #define HAL_SYSCFG_IRDA_POLARITY_INVERTED         SYSCFG_CFGR1_IR_POL                        /*!< 01: IR output polarity inverted */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 #if defined(VREFBUF)
 /** @defgroup SYSCFG_VREFBUF_VoltageScale VREFBUF Voltage Scale
-  * @{
-  */
+ * @{
+ */
 #define SYSCFG_VREFBUF_VOLTAGE_SCALE0  0x00000000U            /*!< Voltage reference scale 0: VREF_OUT1 around 2.048 V.
                                                                    This requires VDDA equal to or higher than 2.4 V.   */
 #define SYSCFG_VREFBUF_VOLTAGE_SCALE1  VREFBUF_CSR_VRS        /*!< Voltage reference scale 1: VREF_OUT1 around 2.5 V.
                                                                    This requires VDDA equal to or higher than 2.8 V.   */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup SYSCFG_VREFBUF_HighImpedance VREFBUF High Impedance
-  * @{
-  */
+ * @{
+ */
 #define SYSCFG_VREFBUF_HIGH_IMPEDANCE_DISABLE  0x00000000U        /*!< VREF_plus pin is internally connected to Voltage reference buffer output */
 #define SYSCFG_VREFBUF_HIGH_IMPEDANCE_ENABLE   VREFBUF_CSR_HIZ    /*!< VREF_plus pin is high impedance */
 
 /**
-  * @}
-  */
+ * @}
+ */
 #endif /* VREFBUF */
 
 /** @defgroup SYSCFG_FastModePlus_GPIO Fast mode Plus on GPIO
-  * @{
-  */
+ * @{
+ */
 
 /** @brief  Fast mode Plus driving capability on a specific GPIO
-  */
+ */
 #define SYSCFG_FASTMODEPLUS_PB6        SYSCFG_CFGR1_I2C_PB6_FMP  /*!< Enable Fast mode Plus on PB6 */
 #define SYSCFG_FASTMODEPLUS_PB7        SYSCFG_CFGR1_I2C_PB7_FMP  /*!< Enable Fast mode Plus on PB7 */
 #define SYSCFG_FASTMODEPLUS_PB8        SYSCFG_CFGR1_I2C_PB8_FMP  /*!< Enable Fast mode Plus on PB8 */
@@ -179,11 +178,11 @@ typedef enum
  */
 
 /** @defgroup SYSCFG_FastModePlus_I2Cx Fast mode Plus driving capability activation for I2Cx
-  * @{
-  */
+ * @{
+ */
 
 /** @brief  Fast mode Plus driving capability on a specific GPIO
-  */
+ */
 #define SYSCFG_FASTMODEPLUS_I2C1       SYSCFG_CFGR1_I2C1_FMP /*!< Enable Fast mode Plus on I2C1 */
 #define SYSCFG_FASTMODEPLUS_I2C2       SYSCFG_CFGR1_I2C2_FMP /*!< Enable Fast mode Plus on I2C2 */
 #if  defined (I2C3)
@@ -195,19 +194,19 @@ typedef enum
  */
 #if defined (SYSCFG_CFGR1_UCPD1_STROBE) || defined (SYSCFG_CFGR1_UCPD2_STROBE)
 /** @defgroup SYSCFG_UCPDx_STROBE SYSCFG Dead Battery feature configuration
-  * @{
-  */
+ * @{
+ */
 #define SYSCFG_UCPD1_STROBE          SYSCFG_CFGR1_UCPD1_STROBE /*!< UCPD1 Dead battery sw configuration */
 #define SYSCFG_UCPD2_STROBE          SYSCFG_CFGR1_UCPD2_STROBE /*!< UCPD2 Dead battery sw configuration */
 /**
-  * @}
-  */
+ * @}
+ */
 #endif /* SYSCFG_CFGR1_UCPD1_STROBE) || SYSCFG_CFGR1_UCPD2_STROBE */
 
 /** @defgroup HAL_ISR_Wrapper HAL ISR Wrapper
-  * @brief ISR Wrapper
-  * @{
-  */
+ * @brief ISR Wrapper
+ * @{
+ */
 #define HAL_SYSCFG_ITLINE0                           0x00000000U /*!< Internal define for macro handling */
 #define HAL_SYSCFG_ITLINE1                           0x00000001U /*!< Internal define for macro handling */
 #define HAL_SYSCFG_ITLINE2                           0x00000002U /*!< Internal define for macro handling */
@@ -389,28 +388,28 @@ typedef enum
 #define HAL_ITLINE_AES            ((HAL_SYSCFG_ITLINE31 << 0x18U) | SYSCFG_ITLINE31_SR_AES)         /*!< AES Interrupt */
 #endif /* AES */
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /* Exported macros -----------------------------------------------------------*/
 /** @defgroup HAL_Exported_Macros HAL Exported Macros
-  * @{
-  */
+ * @{
+ */
 
 /** @defgroup DBG_Exported_Macros DBG Exported Macros
-  * @{
-  */
+ * @{
+ */
 
 /** @brief  Freeze and Unfreeze Peripherals in Debug mode
-  */
+ */
 #if defined(DBG_APB_FZ1_DBG_TIM2_STOP)
 #define __HAL_DBGMCU_FREEZE_TIM2()           SET_BIT(DBG->APBFZ1, DBG_APB_FZ1_DBG_TIM2_STOP)
 #define __HAL_DBGMCU_UNFREEZE_TIM2()         CLEAR_BIT(DBG->APBFZ1, DBG_APB_FZ1_DBG_TIM2_STOP)
@@ -495,81 +494,80 @@ typedef enum
 #define __HAL_DBGMCU_FREEZE_TIM17()          SET_BIT(DBG->APBFZ2, DBG_APB_FZ2_DBG_TIM17_STOP)
 #define __HAL_DBGMCU_UNFREEZE_TIM17()        CLEAR_BIT(DBG->APBFZ2, DBG_APB_FZ2_DBG_TIM17_STOP)
 #endif /* DBG_APB_FZ2_DBG_TIM17_STOP */
-    
+
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup SYSCFG_Exported_Macros SYSCFG Exported Macros
-  * @{
-  */
+ * @{
+ */
 
 /**
-  * @brief ISR wrapper check
-  * @note Allow to determine interrupt source per line.
-  */
+ * @brief ISR wrapper check
+ * @note Allow to determine interrupt source per line.
+ */
 #define __HAL_GET_PENDING_IT(__SOURCE__)     (SYSCFG->IT_LINE_SR[((__SOURCE__) >> 0x18U)] & ((__SOURCE__) & 0x00FFFFFF))
-    
+
 /** @brief  Main Flash memory mapped at 0x00000000
-  */
+ */
 #define __HAL_SYSCFG_REMAPMEMORY_FLASH()     CLEAR_BIT(SYSCFG->CFGR1, SYSCFG_CFGR1_MEM_MODE)
 
 /** @brief  System Flash memory mapped at 0x00000000
-  */
+ */
 #define __HAL_SYSCFG_REMAPMEMORY_SYSTEMFLASH() MODIFY_REG(SYSCFG->CFGR1, SYSCFG_CFGR1_MEM_MODE, SYSCFG_CFGR1_MEM_MODE_0)
 
 /** @brief  Embedded SRAM mapped at 0x00000000
-  */
+ */
 #define __HAL_SYSCFG_REMAPMEMORY_SRAM() \
   MODIFY_REG(SYSCFG->CFGR1, SYSCFG_CFGR1_MEM_MODE, (SYSCFG_CFGR1_MEM_MODE_1|SYSCFG_CFGR1_MEM_MODE_0))
 
 /**
-  * @brief  Return the boot mode as configured by user.
-  * @retval The boot mode as configured by user. The returned value can be one
-  *         of the following values @ref SYSCFG_BootMode
-  */
+ * @brief  Return the boot mode as configured by user.
+ * @retval The boot mode as configured by user. The returned value can be one
+ *         of the following values @ref SYSCFG_BootMode
+ */
 #define __HAL_SYSCFG_GET_BOOT_MODE()           READ_BIT(SYSCFG->CFGR1, SYSCFG_CFGR1_MEM_MODE)
 
 /** @brief  SYSCFG Break ECC lock.
-  *         Enable and lock the connection of Flash ECC error connection to TIM1 Break input.
-  * @note   The selected configuration is locked and can be unlocked only by system reset.
-  */
+ *         Enable and lock the connection of Flash ECC error connection to TIM1 Break input.
+ * @note   The selected configuration is locked and can be unlocked only by system reset.
+ */
 #define __HAL_SYSCFG_BREAK_ECC_LOCK()           SET_BIT(SYSCFG->CFGR2, SYSCFG_CFGR2_ECCL)
 
-
 /** @brief  SYSCFG Break Cortex-M0+ Lockup lock.
-  *         Enables and locks the connection of Cortex-M0+ LOCKUP (Hardfault) output to TIM1/15/16/17 Break input
-  * @note   The selected configuration is locked and can be unlocked only by system reset.
-  */
+ *         Enables and locks the connection of Cortex-M0+ LOCKUP (Hardfault) output to TIM1/15/16/17 Break input
+ * @note   The selected configuration is locked and can be unlocked only by system reset.
+ */
 #define __HAL_SYSCFG_BREAK_LOCKUP_LOCK()        SET_BIT(SYSCFG->CFGR2, SYSCFG_CFGR2_CLL)
 
 #if defined(SYSCFG_CFGR2_PVDL)
 /** @brief  SYSCFG Break PVD lock.
-  *         Enables and locks the PVD connection with Timer1/15/16/17 Break input, as well as the PVDE and PLS[2:0] in the PWR_CR register
-  * @note   The selected configuration is locked and can be unlocked only by system reset
-  */
+ *         Enables and locks the PVD connection with Timer1/15/16/17 Break input, as well as the PVDE and PLS[2:0] in the PWR_CR register
+ * @note   The selected configuration is locked and can be unlocked only by system reset
+ */
 #define __HAL_SYSCFG_BREAK_PVD_LOCK()           SET_BIT(SYSCFG->CFGR2, SYSCFG_CFGR2_PVDL)
 #endif /* SYSCFG_CFGR2_PVDL */
 
 /** @brief  SYSCFG Break SRAM PARITY lock
-  *         Enables and locks the SRAM_PARITY error signal with Break Input of TIMER1/15/16/17
-  * @note   The selected configuration is locked and can only be unlocked by system reset
-  */
+ *         Enables and locks the SRAM_PARITY error signal with Break Input of TIMER1/15/16/17
+ * @note   The selected configuration is locked and can only be unlocked by system reset
+ */
 #define __HAL_SYSCFG_BREAK_SRAMPARITY_LOCK()    SET_BIT(SYSCFG->CFGR2,SYSCFG_CFGR2_SPL)
 
 /** @brief  Parity check on RAM disable macro
-  * @note   Disabling the parity check on RAM locks the configuration bit.
-  *         To re-enable the parity check on RAM perform a system reset.
-  */
+ * @note   Disabling the parity check on RAM locks the configuration bit.
+ *         To re-enable the parity check on RAM perform a system reset.
+ */
 #define __HAL_SYSCFG_RAM_PARITYCHECK_DISABLE()  (SYSCFG->CFGR2 |= SYSCFG_CFGR2_SPF)
 
 /** @brief  Set the PEF bit to clear the SRAM Parity Error Flag.
-  */
+ */
 #define __HAL_SYSCFG_CLEAR_FLAG()               SET_BIT(SYSCFG->CFGR2, SYSCFG_CFGR2_SPF)
 
 /** @brief  Fast-mode Plus driving capability enable/disable macros
-  * @param __FASTMODEPLUS__ This parameter can be a value of @ref SYSCFG_FastModePlus_GPIO
-  */
+ * @param __FASTMODEPLUS__ This parameter can be a value of @ref SYSCFG_FastModePlus_GPIO
+ */
 #define __HAL_SYSCFG_FASTMODEPLUS_ENABLE(__FASTMODEPLUS__)  do {assert_param(IS_SYSCFG_FASTMODEPLUS((__FASTMODEPLUS__)));\
                                                                 SET_BIT(SYSCFG->CFGR1, (__FASTMODEPLUS__));\
                                                                }while(0U)
@@ -580,8 +578,8 @@ typedef enum
 
 #if defined(SYSCFG_CDEN_SUPPORT)
 /** @brief  Clamping Diode on specific pins enable/disable macros
-  * @param __PIN__ This parameter can be a combination of values @ref SYSCFG_ClampingDiode
-  */
+ * @param __PIN__ This parameter can be a combination of values @ref SYSCFG_ClampingDiode
+ */
 #define __HAL_SYSCFG_CLAMPINGDIODE_ENABLE(__PIN__)  do {assert_param(IS_SYSCFG_CLAMPINGDIODE((__PIN__)));\
                                                                 SET_BIT(SYSCFG->CFGR2, (__PIN__));\
                                                                }while(0U)
@@ -592,14 +590,14 @@ typedef enum
 #endif /* SYSCFG_CDEN_SUPPORT */
 
 /** @brief  ISR wrapper check
-  * @note Allow to determine interrupt source per line.
-  */
+ * @note Allow to determine interrupt source per line.
+ */
 #define __HAL_SYSCFG_GET_PENDING_IT(__SOURCE__)  \
   (SYSCFG->IT_LINE_SR[((__SOURCE__) >> 0x18U)] & ((__SOURCE__) & 0x00FFFFFFU))
 
 /** @brief  selection of the modulation envelope signal macro, using bits [7:6] of SYSCFG_CFGR1 register
-  * @param __SOURCE__ This parameter can be a value of @ref HAL_IR_ENV_SEL
-  */
+ * @param __SOURCE__ This parameter can be a value of @ref HAL_IR_ENV_SEL
+ */
 #define __HAL_SYSCFG_IRDA_ENV_SELECTION(__SOURCE__)  do {assert_param(IS_HAL_SYSCFG_IRDA_ENV_SEL((__SOURCE__)));\
                                                          CLEAR_BIT(SYSCFG->CFGR1, SYSCFG_CFGR1_IR_MOD);\
                                                          SET_BIT(SYSCFG->CFGR1, (__SOURCE__));\
@@ -608,23 +606,23 @@ typedef enum
 #define __HAL_SYSCFG_GET_IRDA_ENV_SELECTION()  ((SYSCFG->CFGR1) & 0x000000C0U)
 
 /** @brief  IROut Polarity Selection, using bit[5] of SYSCFG_CFGR1 register
-  * @param __SEL__ This parameter can be a value of @ref HAL_IR_POL_SEL
-  */
+ * @param __SEL__ This parameter can be a value of @ref HAL_IR_POL_SEL
+ */
 #define __HAL_SYSCFG_IRDA_OUT_POLARITY_SELECTION(__SEL__)  do { assert_param(IS_HAL_SYSCFG_IRDA_POL_SEL((__SEL__)));\
                                                                 CLEAR_BIT(SYSCFG->CFGR1, SYSCFG_CFGR1_IR_POL);\
                                                                 SET_BIT(SYSCFG->CFGR1,(__SEL__));\
                                                               }while(0U)
 
 /**
-  * @brief  Return the IROut Polarity mode as configured by user.
-  * @retval The IROut polarity as configured by user. The returned value can be one
-  *         of @ref HAL_IR_POL_SEL
-  */
+ * @brief  Return the IROut Polarity mode as configured by user.
+ * @retval The IROut polarity as configured by user. The returned value can be one
+ *         of @ref HAL_IR_POL_SEL
+ */
 #define __HAL_SYSCFG_GET_POLARITY()           READ_BIT(SYSCFG->CFGR1, SYSCFG_CFGR1_IR_POL)
 
 /** @brief  Break input to TIM1/15/16/17 capability enable/disable macros
-  * @param __BREAK__ This parameter can be a value of @ref SYSCFG_Break
-  */
+ * @param __BREAK__ This parameter can be a value of @ref SYSCFG_Break
+ */
 #define __HAL_SYSCFG_BREAK_ENABLE(__BREAK__)     do {assert_param(IS_SYSCFG_BREAK_CONFIG((__BREAK__)));\
                                                      SET_BIT(SYSCFG->CFGR2, (__BREAK__));\
                                                     }while(0U)
@@ -633,19 +631,18 @@ typedef enum
                                                      CLEAR_BIT(SYSCFG->CFGR2, (__BREAK__));\
                                                     }while(0U)
 
+/**
+ * @}
+ */
 
 /**
-  * @}
-  */
-
-/**
-  * @}
-  */
+ * @}
+ */
 
 /* Private macros ------------------------------------------------------------*/
 /** @defgroup SYSCFG_Private_Macros SYSCFG Private Macros
-  * @{
-  */
+ * @{
+ */
 #if defined (PWR_PVD_SUPPORT)
 #define IS_SYSCFG_BREAK_CONFIG(__CONFIG__) (((__CONFIG__) == SYSCFG_BREAK_SP)        || \
                                             ((__CONFIG__) == SYSCFG_BREAK_PVD)       || \
@@ -706,27 +703,27 @@ typedef enum
                                              ((RMP) == SYSCFG_REMAP_PA12) || \
                                              ((RMP) == (SYSCFG_REMAP_PA11 | SYSCFG_REMAP_PA12)))
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup HAL_Private_Macros HAL Private Macros
-  * @{
-  */
+ * @{
+ */
 #define IS_TICKFREQ(FREQ) (((FREQ) == HAL_TICK_FREQ_10HZ)  || \
                            ((FREQ) == HAL_TICK_FREQ_100HZ) || \
                            ((FREQ) == HAL_TICK_FREQ_1KHZ))
 /**
-  * @}
-  */
+ * @}
+ */
 /* Exported functions --------------------------------------------------------*/
 
 /** @defgroup HAL_Exported_Functions HAL Exported Functions
-  * @{
-  */
+ * @{
+ */
 
 /** @defgroup HAL_Exported_Functions_Group1 HAL Initialization and Configuration functions
-  * @{
-  */
+ * @{
+ */
 
 /* Initialization and Configuration functions  ******************************/
 HAL_StatusTypeDef HAL_Init(void);
@@ -736,12 +733,12 @@ void HAL_MspDeInit(void);
 HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority);
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup HAL_Exported_Functions_Group2 HAL Control functions
-  * @{
-  */
+ * @{
+ */
 
 /* Peripheral Control functions  ************************************************/
 void HAL_IncTick(void);
@@ -760,12 +757,12 @@ uint32_t HAL_GetUIDw1(void);
 uint32_t HAL_GetUIDw2(void);
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup HAL_Exported_Functions_Group3 DBGMCU Control functions
-  * @{
-  */
+ * @{
+ */
 
 /* DBGMCU Peripheral Control functions  *****************************************/
 void HAL_DBGMCU_EnableDBGStopMode(void);
@@ -774,23 +771,23 @@ void HAL_DBGMCU_EnableDBGStandbyMode(void);
 void HAL_DBGMCU_DisableDBGStandbyMode(void);
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /* Exported variables ---------------------------------------------------------*/
 /** @addtogroup HAL_Exported_Variables
-  * @{
-  */
+ * @{
+ */
 extern __IO uint32_t uwTick;
 extern uint32_t uwTickPrio;
 extern HAL_TickFreqTypeDef uwTickFreq;
 /**
-  * @}
-  */
+ * @}
+ */
 
 /** @defgroup HAL_Exported_Functions_Group4 SYSCFG configuration functions
-  * @{
-  */
+ * @{
+ */
 
 /* SYSCFG Control functions  ****************************************************/
 
@@ -814,25 +811,24 @@ void HAL_SYSCFG_DisableClampingDiode(uint32_t PinConfig);
 void HAL_SYSCFG_StrobeDBattpinsConfig(uint32_t ConfigDeadBattery);
 #endif /* SYSCFG_CFGR1_UCPD1_STROBE || SYSCFG_CFGR1_UCPD2_STROBE */
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif /* STM32G0xx_HAL_H */
-
 

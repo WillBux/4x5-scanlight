@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    usbpd_dpm_conf.h
-  * @author  MCD Application Team
-  * @brief   Header file for stack/application settings file
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    usbpd_dpm_conf.h
+ * @author  MCD Application Team
+ * @brief   Header file for stack/application settings file
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 #ifndef __USBPD_DPM_CONF_H_
@@ -54,9 +54,9 @@
 
 /* Private variables ---------------------------------------------------------*/
 #ifndef __USBPD_DPM_CORE_C
-extern USBPD_SettingsTypeDef            DPM_Settings[USBPD_PORT_COUNT];
-extern USBPD_IdSettingsTypeDef          DPM_ID_Settings[USBPD_PORT_COUNT];
-extern USBPD_USER_SettingsTypeDef       DPM_USER_Settings[USBPD_PORT_COUNT];
+extern USBPD_SettingsTypeDef DPM_Settings[USBPD_PORT_COUNT];
+extern USBPD_IdSettingsTypeDef DPM_ID_Settings[USBPD_PORT_COUNT];
+extern USBPD_USER_SettingsTypeDef DPM_USER_Settings[USBPD_PORT_COUNT];
 #else /* __USBPD_DPM_CORE_C */
 USBPD_SettingsTypeDef       DPM_Settings[USBPD_PORT_COUNT] =
 {

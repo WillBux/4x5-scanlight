@@ -37,7 +37,7 @@ ENTRY(Reset_Handler)
 
 /* Highest address of the user mode stack */
 _bflag = ORIGIN(RAM) + LENGTH(RAM) - 8; /* end of "RAM" Ram type memory */
-_estack = _bflag;
+_estack = _bflag; /* start stack one word below _bflag */
 /* _estack = ORIGIN(RAM) + LENGTH(RAM); /* end of "RAM" Ram type memory */
 
 _Min_Heap_Size = 0xc00; /* required amount of heap */
@@ -47,7 +47,8 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 MEMORY
 {
   RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 144K
-  FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 128K
+  FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 96K
+  EMULATED_EEPROM (rw) : ORIGIN = 0x8018000, LENGTH = 32K /* Reserve space for Emulated EEPROM area */
 }
 
 /* Sections */

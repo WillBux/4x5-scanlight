@@ -5,15 +5,15 @@
  ******************************************************************************
  * @attention
  *
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
+ * @attention
+ *
+ * Copyright (c) 2023 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
  *
  ******************************************************************************
  */
@@ -41,21 +41,21 @@
 
 /* Private function prototypes -----------------------------------------------*/
 
-void MX_TCPP_Init(void)
-{
+void MX_TCPP_Init(void) {
 
 #ifndef tcpp01_PORT0_DB_OUT_TO_VCC
-  HAL_GPIO_WritePin(TCPP01_PORT0_DB_OUT_GPIO_PORT, TCPP01_PORT0_DB_OUT_GPIO_PIN, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(TCPP01_PORT0_DB_OUT_GPIO_PORT,
+			TCPP01_PORT0_DB_OUT_GPIO_PIN, GPIO_PIN_SET);
 #endif
 #ifndef TCPP01_PORT0_VCC_OUT_TO_VCC
-  HAL_GPIO_WritePin(TCPP01_PORT0_VCC_OUT_GPIO_PORT, TCPP01_PORT0_VCC_OUT_GPIO_PIN, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(TCPP01_PORT0_VCC_OUT_GPIO_PORT,
+			TCPP01_PORT0_VCC_OUT_GPIO_PIN, GPIO_PIN_SET);
 #endif
 
-  ADC_Start();
+	ADC_Start();
 }
 
-void MX_TCPP_Process(void)
-{
+void MX_TCPP_Process(void) {
 
 }
 

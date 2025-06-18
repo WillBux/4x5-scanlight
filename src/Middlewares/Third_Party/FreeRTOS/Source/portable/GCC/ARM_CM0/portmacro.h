@@ -25,7 +25,6 @@
  * 1 tab == 4 spaces!
  */
 
-
 #ifndef PORTMACRO_H
 #define PORTMACRO_H
 
@@ -60,12 +59,12 @@ typedef unsigned long UBaseType_t;
 	typedef uint16_t TickType_t;
 	#define portMAX_DELAY ( TickType_t ) 0xffff
 #else
-	typedef uint32_t TickType_t;
-	#define portMAX_DELAY ( TickType_t ) 0xffffffffUL
+typedef uint32_t TickType_t;
+#define portMAX_DELAY ( TickType_t ) 0xffffffffUL
 
-	/* 32-bit tick type on a 32-bit architecture, so reads of the tick count do
-	not need to be guarded with a critical section. */
-	#define portTICK_TYPE_IS_ATOMIC 1
+/* 32-bit tick type on a 32-bit architecture, so reads of the tick count do
+ not need to be guarded with a critical section. */
+#define portTICK_TYPE_IS_ATOMIC 1
 #endif
 /*-----------------------------------------------------------*/
 
@@ -75,9 +74,8 @@ typedef unsigned long UBaseType_t;
 #define portBYTE_ALIGNMENT			8
 /*-----------------------------------------------------------*/
 
-
 /* Scheduler utilities. */
-extern void vPortYield( void );
+extern void vPortYield(void);
 #define portNVIC_INT_CTRL_REG		( * ( ( volatile uint32_t * ) 0xe000ed04 ) )
 #define portNVIC_PENDSVSET_BIT		( 1UL << 28UL )
 #define portYIELD()					vPortYield()
@@ -85,12 +83,11 @@ extern void vPortYield( void );
 #define portYIELD_FROM_ISR( x ) portEND_SWITCHING_ISR( x )
 /*-----------------------------------------------------------*/
 
-
 /* Critical section management. */
-extern void vPortEnterCritical( void );
-extern void vPortExitCritical( void );
-extern uint32_t ulSetInterruptMaskFromISR( void ) __attribute__((naked));
-extern void vClearInterruptMaskFromISR( uint32_t ulMask )  __attribute__((naked));
+extern void vPortEnterCritical(void);
+extern void vPortExitCritical(void);
+extern uint32_t ulSetInterruptMaskFromISR(void) __attribute__((naked));
+extern void vClearInterruptMaskFromISR(uint32_t ulMask) __attribute__((naked));
 
 #define portSET_INTERRUPT_MASK_FROM_ISR()		ulSetInterruptMaskFromISR()
 #define portCLEAR_INTERRUPT_MASK_FROM_ISR(x)	vClearInterruptMaskFromISR( x )
@@ -103,8 +100,8 @@ extern void vClearInterruptMaskFromISR( uint32_t ulMask )  __attribute__((naked)
 
 /* Tickless idle/low power functionality. */
 #ifndef portSUPPRESS_TICKS_AND_SLEEP
-	extern void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime );
-	#define portSUPPRESS_TICKS_AND_SLEEP( xExpectedIdleTime ) vPortSuppressTicksAndSleep( xExpectedIdleTime )
+extern void vPortSuppressTicksAndSleep(TickType_t xExpectedIdleTime);
+#define portSUPPRESS_TICKS_AND_SLEEP( xExpectedIdleTime ) vPortSuppressTicksAndSleep( xExpectedIdleTime )
 #endif
 /*-----------------------------------------------------------*/
 

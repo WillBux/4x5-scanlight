@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    usbpd_pwr_if.h
-  * @author  MCD Application Team
-  * @brief   This file contains the headers of usbpd_pw_if.h.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    usbpd_pwr_if.h
+ * @author  MCD Application Team
+ * @brief   This file contains the headers of usbpd_pw_if.h.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 #ifndef __USBPD_PW_IF_H_
@@ -29,35 +29,32 @@
 #include "usbpd_def.h"
 
 /** @addtogroup STM32_USBPD_APPLICATION
-  * @{
-  */
+ * @{
+ */
 
 /** @addtogroup STM32_USBPD_APPLICATION_POWER_IF
-  * @{
-  */
+ * @{
+ */
 
 /* Exported typedef ----------------------------------------------------------*/
 /* Exported define -----------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /** @defgroup USBPD_USER_PWR_IF_Exported_Macros USBPD PWR IF Exported Macros
-  * @{
-  */
+ * @{
+ */
 
 /* enumeration of the different power status available for VBUS */
-typedef enum
-{
-  USBPD_PWR_BELOWVSAFE0V,
-  USBPD_PWR_VSAFE5V,
-  USBPD_PWR_SNKDETACH
+typedef enum {
+	USBPD_PWR_BELOWVSAFE0V, USBPD_PWR_VSAFE5V, USBPD_PWR_SNKDETACH
 } USBPD_VBUSPOWER_STATUS;
 
 /* Enumeration of the different errors detected by power IF */
-typedef enum{
-  USBPD_PWR_IF_OTHER        = 0U,
-  USBPD_PWR_IF_NMI          = 2U,
-  USBPD_PWR_IF_HARD_FAULT   = 3U,
-  USBPD_PWR_IF_OVER_CURRENT = 4U,
+typedef enum {
+	USBPD_PWR_IF_OTHER = 0U,
+	USBPD_PWR_IF_NMI = 2U,
+	USBPD_PWR_IF_HARD_FAULT = 3U,
+	USBPD_PWR_IF_OVER_CURRENT = 4U,
 } USBPD_PWR_IF_ERROR;
 
 /* Macros used to convert values into PDO representation */
@@ -196,8 +193,8 @@ typedef enum{
                                                        << USBPD_PDO_SNK_APDO_MAX_CURRENT_Pos)     \
                                                       & (USBPD_PDO_SNK_APDO_MAX_CURRENT_Msk))
 /**
-  * @}
-  */
+ * @}
+ */
 
 /* Exported variables --------------------------------------------------------*/
 /* USER CODE BEGIN variables */
@@ -205,125 +202,132 @@ typedef enum{
 /* USER CODE END variables */
 /* Exported functions --------------------------------------------------------*/
 /** @defgroup STM32_USBPD_APPLICATION_POWER_IF_Exported_Functions USBPD PWR IF Exported Functions
-  * @{
-  */
+ * @{
+ */
 /**
-  * @brief  Initialize structures and variables related to power board profiles
-  *         used by Sink and Source, for all available ports.
-  * @retval USBPD status
-  */
+ * @brief  Initialize structures and variables related to power board profiles
+ *         used by Sink and Source, for all available ports.
+ * @retval USBPD status
+ */
 USBPD_StatusTypeDef USBPD_PWR_IF_Init(void);
 
 /**
-  * @brief  Checks if the power on a specified port is ready
-  * @param  PortNum Port number
-  * @param  Vsafe   Vsafe status based on @ref USBPD_VSAFE_StatusTypeDef
-  * @retval USBPD status
-  */
-USBPD_StatusTypeDef USBPD_PWR_IF_SupplyReady(uint8_t PortNum, USBPD_VSAFE_StatusTypeDef Vsafe);
+ * @brief  Checks if the power on a specified port is ready
+ * @param  PortNum Port number
+ * @param  Vsafe   Vsafe status based on @ref USBPD_VSAFE_StatusTypeDef
+ * @retval USBPD status
+ */
+USBPD_StatusTypeDef USBPD_PWR_IF_SupplyReady(uint8_t PortNum,
+		USBPD_VSAFE_StatusTypeDef Vsafe);
 
 /**
-  * @brief  Reads the voltage and the current on a specified port
-  * @param  PortNum Port number
-  * @param  pVoltage The Voltage in mV
-  * @param  pCurrent The Current in mA
-  * @retval ENABLE or DISABLE
-  */
-USBPD_StatusTypeDef USBPD_PWR_IF_ReadVA(uint8_t PortNum, uint16_t *pVoltage, uint16_t *pCurrent);
+ * @brief  Reads the voltage and the current on a specified port
+ * @param  PortNum Port number
+ * @param  pVoltage The Voltage in mV
+ * @param  pCurrent The Current in mA
+ * @retval ENABLE or DISABLE
+ */
+USBPD_StatusTypeDef USBPD_PWR_IF_ReadVA(uint8_t PortNum, uint16_t *pVoltage,
+		uint16_t *pCurrent);
 
 /**
-  * @brief  Enables the VConn on the port.
-  * @param  PortNum Port number
-  * @param  CC      Specifies the CCx to be selected based on @ref CCxPin_TypeDef structure
-  * @retval USBPD Status
-  */
-USBPD_StatusTypeDef USBPD_PWR_IF_Enable_VConn(uint8_t PortNum, CCxPin_TypeDef CC);
+ * @brief  Enables the VConn on the port.
+ * @param  PortNum Port number
+ * @param  CC      Specifies the CCx to be selected based on @ref CCxPin_TypeDef structure
+ * @retval USBPD Status
+ */
+USBPD_StatusTypeDef USBPD_PWR_IF_Enable_VConn(uint8_t PortNum,
+		CCxPin_TypeDef CC);
 
 /**
-  * @brief  Disable the VConn on the port.
-  * @param  PortNum Port number
-  * @param  CC      Specifies the CCx to be selected based on @ref CCxPin_TypeDef structure
-  * @retval USBPD Status
-  */
-USBPD_StatusTypeDef USBPD_PWR_IF_Disable_VConn(uint8_t PortNum, CCxPin_TypeDef CC);
+ * @brief  Disable the VConn on the port.
+ * @param  PortNum Port number
+ * @param  CC      Specifies the CCx to be selected based on @ref CCxPin_TypeDef structure
+ * @retval USBPD Status
+ */
+USBPD_StatusTypeDef USBPD_PWR_IF_Disable_VConn(uint8_t PortNum,
+		CCxPin_TypeDef CC);
 
 /**
-  * @brief  Allow PDO data reading from PWR_IF storage.
-  * @param  PortNum Port number
-  * @param  DataId Type of data to be read from PWR_IF
-  *         This parameter can be one of the following values:
-  *           @arg @ref USBPD_CORE_DATATYPE_SRC_PDO Source PDO reading requested
-  *           @arg @ref USBPD_CORE_DATATYPE_SNK_PDO Sink PDO reading requested
-  * @param  Ptr Pointer on address where PDO values should be written (u8 pointer)
-  * @param  Size Pointer on nb of u32 written by PWR_IF (nb of PDOs)
-  * @retval None
-  */
-void USBPD_PWR_IF_GetPortPDOs(uint8_t PortNum, USBPD_CORE_DataInfoType_TypeDef DataId, uint8_t *Ptr, uint32_t *Size);
+ * @brief  Allow PDO data reading from PWR_IF storage.
+ * @param  PortNum Port number
+ * @param  DataId Type of data to be read from PWR_IF
+ *         This parameter can be one of the following values:
+ *           @arg @ref USBPD_CORE_DATATYPE_SRC_PDO Source PDO reading requested
+ *           @arg @ref USBPD_CORE_DATATYPE_SNK_PDO Sink PDO reading requested
+ * @param  Ptr Pointer on address where PDO values should be written (u8 pointer)
+ * @param  Size Pointer on nb of u32 written by PWR_IF (nb of PDOs)
+ * @retval None
+ */
+void USBPD_PWR_IF_GetPortPDOs(uint8_t PortNum,
+		USBPD_CORE_DataInfoType_TypeDef DataId, uint8_t *Ptr, uint32_t *Size);
 
 /**
-  * @brief  Find out SRC PDO pointed out by a position provided in a Request DO (from Sink).
-  * @param  PortNum Port number
-  * @param  RdoPosition RDO Position in list of provided PDO
-  * @param  Pdo Pointer on PDO value pointed out by RDO position (u32 pointer)
-  * @retval Status of search
-  *         USBPD_OK : Src PDO found for requested DO position (output Pdo parameter is set)
-  *         USBPD_FAIL : Position is not compliant with current Src PDO for this port (no corresponding PDO value)
-  */
-USBPD_StatusTypeDef USBPD_PWR_IF_SearchRequestedPDO(uint8_t PortNum, uint32_t RdoPosition, uint32_t *Pdo);
+ * @brief  Find out SRC PDO pointed out by a position provided in a Request DO (from Sink).
+ * @param  PortNum Port number
+ * @param  RdoPosition RDO Position in list of provided PDO
+ * @param  Pdo Pointer on PDO value pointed out by RDO position (u32 pointer)
+ * @retval Status of search
+ *         USBPD_OK : Src PDO found for requested DO position (output Pdo parameter is set)
+ *         USBPD_FAIL : Position is not compliant with current Src PDO for this port (no corresponding PDO value)
+ */
+USBPD_StatusTypeDef USBPD_PWR_IF_SearchRequestedPDO(uint8_t PortNum,
+		uint32_t RdoPosition, uint32_t *Pdo);
 
 /**
-  * @brief  Function called in case of critical issue is detected to switch in safety mode.
-  * @param  ErrorType Type of error detected by monitoring (based on @ref USBPD_PWR_IF_ERROR)
-  * @retval None
-  */
+ * @brief  Function called in case of critical issue is detected to switch in safety mode.
+ * @param  ErrorType Type of error detected by monitoring (based on @ref USBPD_PWR_IF_ERROR)
+ * @retval None
+ */
 void USBPD_PWR_IF_AlarmType(USBPD_PWR_IF_ERROR ErrorType);
 
 /**
-  * @brief  Function called in case of critical issue is detected to switch in safety mode.
-  * @retval None
-  */
+ * @brief  Function called in case of critical issue is detected to switch in safety mode.
+ * @retval None
+ */
 void USBPD_PWR_IF_Alarm(void);
 
 /**
-  * @brief Function is called to get VBUS power status.
-  * @param PortNum Port number
-  * @param PowerTypeStatus  Power type status based on @ref USBPD_VBUSPOWER_STATUS
-  * @retval UBBPD_TRUE or USBPD_FALSE
-  */
-uint8_t USBPD_PWR_IF_GetVBUSStatus(uint8_t PortNum, USBPD_VBUSPOWER_STATUS PowerTypeStatus);
+ * @brief Function is called to get VBUS power status.
+ * @param PortNum Port number
+ * @param PowerTypeStatus  Power type status based on @ref USBPD_VBUSPOWER_STATUS
+ * @retval UBBPD_TRUE or USBPD_FALSE
+ */
+uint8_t USBPD_PWR_IF_GetVBUSStatus(uint8_t PortNum,
+		USBPD_VBUSPOWER_STATUS PowerTypeStatus);
 
 /**
-  * @brief Function is called to set the VBUS threshold when a request has been accepted.
-  * @param PortNum Port number
-  * @retval None
-  */
+ * @brief Function is called to set the VBUS threshold when a request has been accepted.
+ * @param PortNum Port number
+ * @retval None
+ */
 void USBPD_PWR_IF_UpdateVbusThreshold(uint8_t PortNum);
 
 /**
-  * @brief Function is called to reset the VBUS threshold when there is a power reset.
-  * @param PortNum Port number
-  * @retval None
-  */
+ * @brief Function is called to reset the VBUS threshold when there is a power reset.
+ * @param PortNum Port number
+ * @retval None
+ */
 void USBPD_PWR_IF_ResetVbusThreshold(uint8_t PortNum);
 
 /* USER CODE BEGIN Exported Functions */
 
 /* USER CODE END Exported Functions */
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 #ifdef __cplusplus
 }

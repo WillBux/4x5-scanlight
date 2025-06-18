@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    usbpd_trace.c
-  * @author  MCD Application Team
-  * @brief   This file contains trace control functions.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2021 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    usbpd_trace.c
+ * @author  MCD Application Team
+ * @brief   This file contains trace control functions.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2021 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 
 /* Includes ------------------------------------------------------------------*/
 #define USBPD_TRACE_C
@@ -27,23 +27,23 @@
 #endif /* _TRACE */
 
 /** @addtogroup STM32_USBPD_LIBRARY
-  * @{
-  */
+ * @{
+ */
 
 /** @addtogroup USBPD_CORE
-  * @{
-  */
+ * @{
+ */
 
 /** @addtogroup USBPD_CORE_TRACE
-  * @{
-  */
+ * @{
+ */
 
 /* Private enums -------------------------------------------------------------*/
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /** @defgroup USBPD_CORE_TRACE_Private_Defines USBPD CORE TRACE Private Defines
-  * @{
-  */
+ * @{
+ */
 
 #define TRACE_SIZE_HEADER_TRACE   9u      /* Type + Time x 2 + PortNum + Sop + Size */
 
@@ -58,13 +58,13 @@
 
 #define DEBUG_STACK_MESSAGE       0x12u
 /**
-  * @}
-  */
+ * @}
+ */
 
 /* Private macro -------------------------------------------------------------*/
 /** @defgroup USBPD_CORE_TRACE_Private_Macros USBPD CORE TRACE Private Macros
-  * @{
-  */
+ * @{
+ */
 #define TRACE_SET_TAG_ID(_PORT_, _TAG_)         (((_PORT_) << TRACE_PORT_BIT_POSITION) | (_TAG_))
 
 #define TRACER_EMB_WRITE_DATA(_POSITION_,_DATA_)  do {                                        \
@@ -72,27 +72,26 @@
                                                        (_POSITION_) = ((_POSITION_) + 1u);         \
                                                      } while(0)
 /**
-  * @}
-  */
+ * @}
+ */
 
 /* Private function prototypes -----------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /** @defgroup USBPD_CORE_TRACE_Private_Variables USBPD CORE TRACE Private Variables
-  * @{
-  */
+ * @{
+ */
 extern uint32_t HAL_GetTick(void);
-extern void     USBPD_DPM_TraceWakeUp(void);
+extern void USBPD_DPM_TraceWakeUp(void);
 /**
-  * @}
-  */
+ * @}
+ */
 
 /* Exported functions ---------------------------------------------------------*/
 
 /** @addtogroup USBPD_CORE_TRACE_Exported_Functions
-  * @{
-  */
-void USBPD_TRACE_Init(void)
-{
+ * @{
+ */
+void USBPD_TRACE_Init(void) {
 #if defined(_TRACE)
   static const uint8_t OverFlow_String[] =
   {
@@ -117,18 +116,17 @@ void USBPD_TRACE_Init(void)
   /* Initialize the overflow detection */
   (void)TRACER_EMB_EnableOverFlow(OverFlow_String, (uint8_t)sizeof(OverFlow_String));
 #else
-  return;
+	return;
 #endif /* _TRACE */
 }
 
-void USBPD_TRACE_DeInit(void)
-{
-  /* Nothing to do */
-  return;
+void USBPD_TRACE_DeInit(void) {
+	/* Nothing to do */
+	return;
 }
 
-void  USBPD_TRACE_Add(TRACE_EVENT Type, uint8_t PortNum, uint8_t Sop, uint8_t *Ptr, uint32_t Size)
-{
+void USBPD_TRACE_Add(TRACE_EVENT Type, uint8_t PortNum, uint8_t Sop,
+		uint8_t *Ptr, uint32_t Size) {
 #if defined(_TRACE)
   uint32_t _time;
   int32_t _allocation;
@@ -191,23 +189,23 @@ void  USBPD_TRACE_Add(TRACE_EVENT Type, uint8_t PortNum, uint8_t Sop, uint8_t *P
 
   TRACER_EMB_SendData();
 #else
-  return;
+	return;
 #endif /* _TRACE */
 }
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
 /**
-  * @}
-  */
+ * @}
+ */
 
