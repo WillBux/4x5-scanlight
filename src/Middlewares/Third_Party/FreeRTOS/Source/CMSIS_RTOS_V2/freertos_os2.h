@@ -31,65 +31,66 @@
 #include CMSIS_device_header
 
 /*
- CMSIS-RTOS2 FreeRTOS image size optimization definitions.
+  CMSIS-RTOS2 FreeRTOS image size optimization definitions.
 
- Note: Definitions configUSE_OS2 can be used to optimize FreeRTOS image size when
- certain functionality is not required when using CMSIS-RTOS2 API.
- In general optimization decisions are left to the tool chain but in cases
- when coding style prevents it to optimize the code following optional
- definitions can be used.
- */
+  Note: Definitions configUSE_OS2 can be used to optimize FreeRTOS image size when
+        certain functionality is not required when using CMSIS-RTOS2 API.
+        In general optimization decisions are left to the tool chain but in cases
+        when coding style prevents it to optimize the code following optional
+        definitions can be used.
+*/
 
 /*
- Option to exclude CMSIS-RTOS2 functions osThreadSuspend and osThreadResume from
- the application image.
- */
+  Option to exclude CMSIS-RTOS2 functions osThreadSuspend and osThreadResume from
+  the application image.
+*/
 #ifndef configUSE_OS2_THREAD_SUSPEND_RESUME
 #define configUSE_OS2_THREAD_SUSPEND_RESUME   1
 #endif
 
 /*
- Option to exclude CMSIS-RTOS2 function osThreadEnumerate from the application image.
- */
+  Option to exclude CMSIS-RTOS2 function osThreadEnumerate from the application image.
+*/
 #ifndef configUSE_OS2_THREAD_ENUMERATE
 #define configUSE_OS2_THREAD_ENUMERATE        1
 #endif
 
 /*
- Option to disable CMSIS-RTOS2 function osEventFlagsSet and osEventFlagsClear
- operation from ISR.
- */
+  Option to disable CMSIS-RTOS2 function osEventFlagsSet and osEventFlagsClear
+  operation from ISR.
+*/
 #ifndef configUSE_OS2_EVENTFLAGS_FROM_ISR
 #define configUSE_OS2_EVENTFLAGS_FROM_ISR     1
 #endif
 
 /*
- Option to exclude CMSIS-RTOS2 Thread Flags API functions from the application image.
- */
+  Option to exclude CMSIS-RTOS2 Thread Flags API functions from the application image.
+*/
 #ifndef configUSE_OS2_THREAD_FLAGS
 #define configUSE_OS2_THREAD_FLAGS            configUSE_TASK_NOTIFICATIONS
 #endif
 
 /*
- Option to exclude CMSIS-RTOS2 Timer API functions from the application image.
- */
+  Option to exclude CMSIS-RTOS2 Timer API functions from the application image.
+*/
 #ifndef configUSE_OS2_TIMER
 #define configUSE_OS2_TIMER                   configUSE_TIMERS
 #endif
 
 /*
- Option to exclude CMSIS-RTOS2 Mutex API functions from the application image.
- */
+  Option to exclude CMSIS-RTOS2 Mutex API functions from the application image.
+*/
 #ifndef configUSE_OS2_MUTEX
 #define configUSE_OS2_MUTEX                   configUSE_MUTEXES
 #endif
 
-/*
- CMSIS-RTOS2 FreeRTOS configuration check (FreeRTOSConfig.h).
 
- Note: CMSIS-RTOS API requires functions included by using following definitions.
- In case if certain API function is not used compiler will optimize it away.
- */
+/*
+  CMSIS-RTOS2 FreeRTOS configuration check (FreeRTOSConfig.h).
+
+  Note: CMSIS-RTOS API requires functions included by using following definitions.
+        In case if certain API function is not used compiler will optimize it away.
+*/
 #if (INCLUDE_xSemaphoreGetMutexHolder == 0)
   /*
     CMSIS-RTOS2 function osMutexGetOwner uses FreeRTOS function xSemaphoreGetMutexHolder. In case if

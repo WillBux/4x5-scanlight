@@ -70,6 +70,7 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 void USB_ProcessReceivedData(uint8_t *Buf, uint32_t Len);
+void Bootloader_RequestReset(void);
 void R_SW_EXTI_Handler(void);
 void R_IQ_EXTI_Handler(void);
 
@@ -85,6 +86,12 @@ void R_IQ_EXTI_Handler(void);
 #define R_I_GPIO_Port GPIOA
 #define VSENSE_Pin GPIO_PIN_10
 #define VSENSE_GPIO_Port GPIOB
+#define SHUTTER_Pin GPIO_PIN_11
+#define SHUTTER_GPIO_Port GPIOB
+#define FOCUS_Pin GPIO_PIN_12
+#define FOCUS_GPIO_Port GPIOB
+#define CAMERA_DETECT_Pin GPIO_PIN_13
+#define CAMERA_DETECT_GPIO_Port GPIOB
 #define FLT_IN_Pin GPIO_PIN_9
 #define FLT_IN_GPIO_Port GPIOA
 #define DB_OUT_Pin GPIO_PIN_6

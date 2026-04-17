@@ -54,9 +54,9 @@
 
 /* Private variables ---------------------------------------------------------*/
 #ifndef __USBPD_DPM_CORE_C
-extern USBPD_SettingsTypeDef DPM_Settings[USBPD_PORT_COUNT];
-extern USBPD_IdSettingsTypeDef DPM_ID_Settings[USBPD_PORT_COUNT];
-extern USBPD_USER_SettingsTypeDef DPM_USER_Settings[USBPD_PORT_COUNT];
+extern USBPD_SettingsTypeDef            DPM_Settings[USBPD_PORT_COUNT];
+extern USBPD_IdSettingsTypeDef          DPM_ID_Settings[USBPD_PORT_COUNT];
+extern USBPD_USER_SettingsTypeDef       DPM_USER_Settings[USBPD_PORT_COUNT];
 #else /* __USBPD_DPM_CORE_C */
 USBPD_SettingsTypeDef       DPM_Settings[USBPD_PORT_COUNT] =
 {

@@ -36,35 +36,36 @@
 /* USER CODE BEGIN 2 */
 /* USER CODE END 2 */
 /* USBPD init function */
-void MX_USBPD_Init(void) {
+void MX_USBPD_Init(void)
+{
 
-	/* Global Init of USBPD HW */
-	USBPD_HW_IF_GlobalHwInit();
+  /* Global Init of USBPD HW */
+  USBPD_HW_IF_GlobalHwInit();
 
-	/* Initialize the Device Policy Manager */
-	if (USBPD_OK != USBPD_DPM_InitCore()) {
-		while (1)
-			;
-	}
+  /* Initialize the Device Policy Manager */
+  if (USBPD_OK != USBPD_DPM_InitCore())
+  {
+    while(1);
+  }
 
-	/* Initialise the DPM application */
-	if (USBPD_OK != USBPD_DPM_UserInit()) {
-		while (1)
-			;
-	}
+  /* Initialise the DPM application */
+  if (USBPD_OK != USBPD_DPM_UserInit())
+  {
+    while(1);
+  }
 
-	/* USER CODE BEGIN 3 */
-	/* USER CODE END 3 */
+  /* USER CODE BEGIN 3 */
+  /* USER CODE END 3 */
 
-	if (USBPD_OK != USBPD_DPM_InitOS()) {
-		while (1)
-			;
-	}
+  if (USBPD_OK != USBPD_DPM_InitOS())
+  {
+    while(1);
+  }
 
-	/* USER CODE BEGIN EnableIRQ */
+  /* USER CODE BEGIN EnableIRQ */
 	/* Enable IRQ which has been disabled by FreeRTOS services */
 	__enable_irq();
-	/* USER CODE END EnableIRQ */
+  /* USER CODE END EnableIRQ */
 
 }
 
@@ -72,9 +73,9 @@ void MX_USBPD_Init(void) {
 /* USER CODE END 4 */
 
 /**
- * @}
- */
+  * @}
+  */
 
 /**
- * @}
- */
+  * @}
+  */

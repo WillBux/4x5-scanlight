@@ -38,31 +38,31 @@
 /* USER CODE END INCLUDE */
 
 /** @addtogroup USBD_OTG_DRIVER
- * @brief Driver for Usb device.
- * @{
- */
+  * @brief Driver for Usb device.
+  * @{
+  */
 
 /** @defgroup USBD_CONF USBD_CONF
- * @brief Configuration file for Usb otg low level driver.
- * @{
- */
+  * @brief Configuration file for Usb otg low level driver.
+  * @{
+  */
 
 /** @defgroup USBD_CONF_Exported_Variables USBD_CONF_Exported_Variables
- * @brief Public variables.
- * @{
- */
+  * @brief Public variables.
+  * @{
+  */
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 /* USER CODE END PV */
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup USBD_CONF_Exported_Defines USBD_CONF_Exported_Defines
- * @brief Defines for configuration of the Usb device.
- * @{
- */
+  * @brief Defines for configuration of the Usb device.
+  * @{
+  */
 
 /*---------- -----------*/
 #define USBD_MAX_NUM_INTERFACES     1U
@@ -82,13 +82,13 @@
 #define DEVICE_FS 		0
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup USBD_CONF_Exported_Macros USBD_CONF_Exported_Macros
- * @brief Aliases.
- * @{
- */
+  * @brief Aliases.
+  * @{
+  */
 
 /* Memory management macros make sure to use static memory allocation */
 /** Alias for memory allocation. */
@@ -133,38 +133,38 @@
 #endif
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup USBD_CONF_Exported_Types USBD_CONF_Exported_Types
- * @brief Types.
- * @{
- */
+  * @brief Types.
+  * @{
+  */
 
 /**
- * @}
- */
+  * @}
+  */
 
 /** @defgroup USBD_CONF_Exported_FunctionsPrototype USBD_CONF_Exported_FunctionsPrototype
- * @brief Declaration of public functions for Usb device.
- * @{
- */
+  * @brief Declaration of public functions for Usb device.
+  * @{
+  */
 
 /* Exported functions -------------------------------------------------------*/
-void* USBD_static_malloc(uint32_t size);
+void *USBD_static_malloc(uint32_t size);
 void USBD_static_free(void *p);
 
 /**
- * @}
- */
+  * @}
+  */
 
 /**
- * @}
- */
+  * @}
+  */
 
 /**
- * @}
- */
+  * @}
+  */
 
 #ifdef __cplusplus
 }

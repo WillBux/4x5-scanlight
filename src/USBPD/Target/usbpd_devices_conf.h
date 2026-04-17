@@ -46,8 +46,8 @@ extern "C" {
 /* Private define ------------------------------------------------------------*/
 
 /* -----------------------------------------------------------------------------
- usbpd_hw.c
- -------------------------------------------------------------------------------*/
+      usbpd_hw.c
+-------------------------------------------------------------------------------*/
 
 /* defined used to configure function : USBPD_HW_GetUSPDInstance */
 #define UCPD_INSTANCE0 UCPD1
@@ -85,8 +85,8 @@ extern "C" {
                                     } while(0)
 
 /* -----------------------------------------------------------------------------
- Definitions for timer service feature
- -------------------------------------------------------------------------------*/
+      Definitions for timer service feature
+-------------------------------------------------------------------------------*/
 #define TIMX                           TIM1
 #define TIMX_CLK_ENABLE                LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM1)
 #define TIMX_CLK_DISABLE               LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_TIM1)

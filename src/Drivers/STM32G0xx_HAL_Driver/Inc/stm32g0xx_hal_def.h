@@ -1,21 +1,21 @@
 /**
- ******************************************************************************
- * @file    stm32g0xx_hal_def.h
- * @author  MCD Application Team
- * @brief   This file contains HAL common defines, enumeration, macros and
- *          structures definitions.
- ******************************************************************************
- * @attention
- *
- * Copyright (c) 2018 STMicroelectronics. 
- * All rights reserved.
- *
- * This software is licensed under terms that can be found in the LICENSE file
- * in the root directory of this software component.
- * If no LICENSE file comes with this software, it is provided AS-IS.
- *
- ******************************************************************************
- */
+  ******************************************************************************
+  * @file    stm32g0xx_hal_def.h
+  * @author  MCD Application Team
+  * @brief   This file contains HAL common defines, enumeration, macros and
+  *          structures definitions.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2018 STMicroelectronics. 
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef STM32G0xx_HAL_DEF
@@ -33,17 +33,23 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 
 /**
- * @brief  HAL Status structures definition
- */
-typedef enum {
-	HAL_OK = 0x00U, HAL_ERROR = 0x01U, HAL_BUSY = 0x02U, HAL_TIMEOUT = 0x03U
+  * @brief  HAL Status structures definition
+  */
+typedef enum
+{
+  HAL_OK       = 0x00U,
+  HAL_ERROR    = 0x01U,
+  HAL_BUSY     = 0x02U,
+  HAL_TIMEOUT  = 0x03U
 } HAL_StatusTypeDef;
 
 /**
- * @brief  HAL Lock structures definition
- */
-typedef enum {
-	HAL_UNLOCKED = 0x00U, HAL_LOCKED = 0x01U
+  * @brief  HAL Lock structures definition
+  */
+typedef enum
+{
+  HAL_UNLOCKED = 0x00U,
+  HAL_LOCKED   = 0x01U
 } HAL_LockTypeDef;
 
 /* Exported macros -----------------------------------------------------------*/
@@ -64,20 +70,20 @@ typedef enum {
                           } while(0U)
 
 /** @brief Reset the Handles State field.
- * @param __HANDLE__ specifies the Peripheral Handle.
- * @note  This macro can be used for the following purpose:
- *          - When the Handle is declared as local variable; before passing it as parameter
- *            to HAL_PPP_Init() for the first time, it is mandatory to use this macro
- *            to set to 0 the Handles "State" field.
- *            Otherwise, "State" field may have any random value and the first time the function
- *            HAL_PPP_Init() is called, the low level hardware initialization will be missed
- *            (i.e. HAL_PPP_MspInit() will not be executed).
- *          - When there is a need to reconfigure the low level hardware: instead of calling
- *            HAL_PPP_DeInit() then HAL_PPP_Init(), user can make a call to this macro then HAL_PPP_Init().
- *            In this later function, when the Handles "State" field is set to 0, it will execute the function
- *            HAL_PPP_MspInit() which will reconfigure the low level hardware.
- * @retval None
- */
+  * @param __HANDLE__ specifies the Peripheral Handle.
+  * @note  This macro can be used for the following purpose:
+  *          - When the Handle is declared as local variable; before passing it as parameter
+  *            to HAL_PPP_Init() for the first time, it is mandatory to use this macro
+  *            to set to 0 the Handles "State" field.
+  *            Otherwise, "State" field may have any random value and the first time the function
+  *            HAL_PPP_Init() is called, the low level hardware initialization will be missed
+  *            (i.e. HAL_PPP_MspInit() will not be executed).
+  *          - When there is a need to reconfigure the low level hardware: instead of calling
+  *            HAL_PPP_DeInit() then HAL_PPP_Init(), user can make a call to this macro then HAL_PPP_Init().
+  *            In this later function, when the Handles "State" field is set to 0, it will execute the function
+  *            HAL_PPP_MspInit() which will reconfigure the low level hardware.
+  * @retval None
+  */
 #define __HAL_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = 0U)
 
 #if (USE_RTOS == 1U)
@@ -118,6 +124,7 @@ typedef enum {
 #endif /* __packed */
 #endif /* __GNUC__ */
 
+
 /* Macro to get variable aligned on 4-bytes, for __ICCARM__ the directive "#pragma data_alignment=4" must be used instead */
 /* GNU Compiler */
 #if defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050) /* ARM Compiler V6 */
@@ -150,8 +157,8 @@ typedef enum {
 #endif /* __GNUC__ */
 
 /**
- * @brief  __RAM_FUNC definition
- */
+  * @brief  __RAM_FUNC definition
+  */
 #if defined ( __CC_ARM   ) || (defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))
 /* ARM Compiler V4/V5 and V6
    --------------------------
@@ -173,21 +180,21 @@ typedef enum {
 
 #elif defined   (  __GNUC__  )
 /* GNU Compiler
- ------------
- RAM functions are defined using a specific toolchain attribute
- "__attribute__((section(".RamFunc")))".
- */
+   ------------
+  RAM functions are defined using a specific toolchain attribute
+   "__attribute__((section(".RamFunc")))".
+*/
 #define __RAM_FUNC __attribute__((section(".RamFunc")))
 
 #endif /* __CC_ARM || __ARMCC_VERSION */
 
 /**
- * @brief  __NOINLINE definition
- */
+  * @brief  __NOINLINE definition
+  */
 #if defined ( __CC_ARM   ) || (defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)) || defined   (  __GNUC__  )
 /* ARM V4/V5 and V6 & GNU Compiler
- ------------------------------- 
- */
+   ------------------------------- 
+*/
 #define __NOINLINE __attribute__ ( (noinline) )
 
 #elif defined ( __ICCARM__ )
@@ -198,9 +205,11 @@ typedef enum {
 
 #endif /* __CC_ARM || __ARMCC_VERSION */
 
+
 #ifdef __cplusplus
 }
 #endif
 
 #endif /* STM32G0xx_HAL_DEF */
+
 

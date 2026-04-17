@@ -32,6 +32,9 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
+static uint32_t cdc_line_coding_baud = 115200U;
+static uint8_t cdc_control_line_state = 0U;
+static uint8_t cdc_bootloader_arm = 0U;
 
 /* USER CODE END PV */
 
@@ -221,6 +224,11 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
   /* 6      | bDataBits  |   1   | Number Data bits (5, 6, 7, 8 or 16).          */
   /*******************************************************************************/
     case CDC_SET_LINE_CODING:
+      cdc_line_coding_baud = (uint32_t)pbuf[0]
+          | ((uint32_t)pbuf[1] << 8)
+          | ((uint32_t)pbuf[2] << 16)
+          | ((uint32_t)pbuf[3] << 24);
+      cdc_bootloader_arm = (cdc_line_coding_baud == 1200U) ? 1U : 0U;
 
     break;
 
@@ -229,6 +237,14 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
     break;
 
     case CDC_SET_CONTROL_LINE_STATE:
+    {
+      USBD_SetupReqTypedef *req = (USBD_SetupReqTypedef *)pbuf;
+      cdc_control_line_state = (uint8_t)(req->wValue & 0x03U);
+      if ((cdc_bootloader_arm != 0U) && ((cdc_control_line_state & 0x01U) == 0U))
+      {
+        Bootloader_RequestReset();
+      }
+    }
 
     break;
 

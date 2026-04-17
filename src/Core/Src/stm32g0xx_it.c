@@ -73,10 +73,11 @@ extern __IO uint8_t CleanupPhase;
 /*           Cortex-M0+ Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
- * @brief This function handles Non maskable interrupt.
- */
-void NMI_Handler(void) {
-	/* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+  * @brief This function handles Non maskable interrupt.
+  */
+void NMI_Handler(void)
+{
+  /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
 
 	/* Check if NMI is due to flash ECCD (error detection) */
 	if (__HAL_FLASH_GET_FLAG(FLASH_FLAG_ECCD)) {
@@ -122,24 +123,26 @@ void NMI_Handler(void) {
 
 	/* Go to infinite loop when NMI occurs */
 
-	/* USER CODE END NonMaskableInt_IRQn 0 */
-	/* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+  /* USER CODE END NonMaskableInt_IRQn 0 */
+  /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
 	while (1) {
 	}
-	/* USER CODE END NonMaskableInt_IRQn 1 */
+  /* USER CODE END NonMaskableInt_IRQn 1 */
 }
 
 /**
- * @brief This function handles Hard fault interrupt.
- */
-void HardFault_Handler(void) {
-	/* USER CODE BEGIN HardFault_IRQn 0 */
+  * @brief This function handles Hard fault interrupt.
+  */
+void HardFault_Handler(void)
+{
+  /* USER CODE BEGIN HardFault_IRQn 0 */
 
-	/* USER CODE END HardFault_IRQn 0 */
-	while (1) {
-		/* USER CODE BEGIN W1_HardFault_IRQn 0 */
-		/* USER CODE END W1_HardFault_IRQn 0 */
-	}
+  /* USER CODE END HardFault_IRQn 0 */
+  while (1)
+  {
+    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+    /* USER CODE END W1_HardFault_IRQn 0 */
+  }
 }
 
 /******************************************************************************/
@@ -150,82 +153,100 @@ void HardFault_Handler(void) {
 /******************************************************************************/
 
 /**
- * @brief This function handles USB, UCPD1 and UCPD2 global interrupts.
- */
-void USB_UCPD1_2_IRQHandler(void) {
-	/* USER CODE BEGIN USB_UCPD1_2_IRQn 0 */
-
-	/* USER CODE END USB_UCPD1_2_IRQn 0 */
-	HAL_PCD_IRQHandler(&hpcd_USB_DRD_FS);
-	USBPD_PORT0_IRQHandler();
-
-	/* USER CODE BEGIN USB_UCPD1_2_IRQn 1 */
-
-	/* USER CODE END USB_UCPD1_2_IRQn 1 */
+  * @brief This function handles Flash global interrupt.
+  */
+void FLASH_IRQHandler(void)
+{
+  /* USER CODE BEGIN FLASH_IRQn 0 */
+  if ((FLASH->ECCR & FLASH_FLAG_ECCC) != 0) {
+    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_ECCC);
+  }
+  /* USER CODE END FLASH_IRQn 0 */
+  HAL_FLASH_IRQHandler();
+  /* USER CODE BEGIN FLASH_IRQn 1 */
+  __HAL_FLASH_ENABLE_IT(FLASH_IT_ECCC);
+  /* USER CODE END FLASH_IRQn 1 */
 }
 
 /**
- * @brief This function handles DMA1 channel 1 interrupt.
- */
-void DMA1_Channel1_IRQHandler(void) {
-	/* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
+  * @brief This function handles USB, UCPD1 and UCPD2 global interrupts.
+  */
+void USB_UCPD1_2_IRQHandler(void)
+{
+  /* USER CODE BEGIN USB_UCPD1_2_IRQn 0 */
 
-	/* USER CODE END DMA1_Channel1_IRQn 0 */
-	/* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
+  /* USER CODE END USB_UCPD1_2_IRQn 0 */
+  HAL_PCD_IRQHandler(&hpcd_USB_DRD_FS);
+  USBPD_PORT0_IRQHandler();
 
-	/* USER CODE END DMA1_Channel1_IRQn 1 */
+  /* USER CODE BEGIN USB_UCPD1_2_IRQn 1 */
+
+  /* USER CODE END USB_UCPD1_2_IRQn 1 */
 }
 
 /**
- * @brief This function handles DMA1 channel 2 and channel 3 interrupts.
- */
-void DMA1_Channel2_3_IRQHandler(void) {
-	/* USER CODE BEGIN DMA1_Channel2_3_IRQn 0 */
+  * @brief This function handles DMA1 channel 1 interrupt.
+  */
+void DMA1_Channel1_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
 
-	/* USER CODE END DMA1_Channel2_3_IRQn 0 */
-	HAL_DMA_IRQHandler(&hdma_i2c2_tx);
-	/* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
+  /* USER CODE END DMA1_Channel1_IRQn 0 */
+  /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
 
-	/* USER CODE END DMA1_Channel2_3_IRQn 1 */
+  /* USER CODE END DMA1_Channel1_IRQn 1 */
 }
 
 /**
- * @brief This function handles TIM3, TIM4 global Interrupt.
- */
-void TIM3_TIM4_IRQHandler(void) {
-	/* USER CODE BEGIN TIM3_TIM4_IRQn 0 */
+  * @brief This function handles DMA1 channel 2 and channel 3 interrupts.
+  */
+void DMA1_Channel2_3_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Channel2_3_IRQn 0 */
 
-	/* USER CODE END TIM3_TIM4_IRQn 0 */
-	HAL_TIM_IRQHandler(&htim3);
-	/* USER CODE BEGIN TIM3_TIM4_IRQn 1 */
+  /* USER CODE END DMA1_Channel2_3_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_i2c2_tx);
+  /* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
 
-	/* USER CODE END TIM3_TIM4_IRQn 1 */
+  /* USER CODE END DMA1_Channel2_3_IRQn 1 */
 }
 
 /**
- * @brief This function handles I2C2, I2C3 Interrupt (combined with EXTI 24 and EXTI 22).
- */
-void I2C2_3_IRQHandler(void) {
-	/* USER CODE BEGIN I2C2_3_IRQn 0 */
+  * @brief This function handles TIM3, TIM4 global Interrupt.
+  */
+void TIM3_TIM4_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM3_TIM4_IRQn 0 */
 
-	/* USER CODE END I2C2_3_IRQn 0 */
-	if (hi2c2.Instance->ISR & (I2C_FLAG_BERR | I2C_FLAG_ARLO | I2C_FLAG_OVR)) {
-		HAL_I2C_ER_IRQHandler(&hi2c2);
-	} else {
-		HAL_I2C_EV_IRQHandler(&hi2c2);
-	}
-	/* USER CODE BEGIN I2C2_3_IRQn 1 */
+  /* USER CODE END TIM3_TIM4_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim3);
+  /* USER CODE BEGIN TIM3_TIM4_IRQn 1 */
 
-	/* USER CODE END I2C2_3_IRQn 1 */
+  /* USER CODE END TIM3_TIM4_IRQn 1 */
+}
+
+/**
+  * @brief This function handles I2C2, I2C3 Interrupt (combined with EXTI 24 and EXTI 22).
+  */
+void I2C2_3_IRQHandler(void)
+{
+  /* USER CODE BEGIN I2C2_3_IRQn 0 */
+
+  /* USER CODE END I2C2_3_IRQn 0 */
+  if (hi2c2.Instance->ISR & (I2C_FLAG_BERR | I2C_FLAG_ARLO | I2C_FLAG_OVR))
+  {
+    HAL_I2C_ER_IRQHandler(&hi2c2);
+  }
+  else
+  {
+    HAL_I2C_EV_IRQHandler(&hi2c2);
+  }
+  /* USER CODE BEGIN I2C2_3_IRQn 1 */
+
+  /* USER CODE END I2C2_3_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
-void FLASH_IRQHandler(void) {
-	if ((FLASH->ECCR & FLASH_FLAG_ECCC) != 0) {
-		__HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_ECCC);
-	}
-	HAL_FLASH_IRQHandler();
-	__HAL_FLASH_ENABLE_IT(FLASH_IT_ECCC);
-}
+
 
 /* USER CODE END 1 */
