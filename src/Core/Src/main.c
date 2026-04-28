@@ -28,6 +28,8 @@
 #include "usbd_cdc_if.h"
 #include <stdio.h>
 
+// include custom defines before library to preserve overrides
+#include "ssd1306_custom_defines.h" 
 #include "ssd1306.h"
 #include "eeprom_emul.h"
 #include "usbpd_pwr_user.h"
