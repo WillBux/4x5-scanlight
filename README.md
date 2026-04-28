@@ -19,8 +19,8 @@ A slightly different [red led](https://www.digikey.ch/en/products/detail/lumiled
 to better match the [Spectral-Sensitivity Curve of Portra 160](https://business.kodakmoments.com/sites/default/files/files/resources/e4051_Portra_160.pdf) (and it is cheaper at the time of writing).
 
 This project incorporates a microcontroller (STM32G0B1) which more precisely controls the brightness of each LED channel.
-This can be stored through power off states for repeatable scans. 
-Additionally, the microcontroller is responsible for USB-PD (20V is necessary, 1.25A approximate maximum)
+Brightness values can be stored through power off states for repeatable scans. 
+Additionally, the microcontroller is responsible for USB-PD (20V is necessary, ~1.25A required for maximum brightness)
 
 ![](pcb/pcb.png)
 
@@ -48,10 +48,11 @@ Additional parts:
 
 ### Status and the Future
 
-The code has not been finalized. 
-USB-PD and the dimming of the LEDs are working as expected. 
-I have not implemented the screen or rotary encoder input. 
-
+The backlight has been working great for my scanning! 
+I recently redesigned the PCB to add a 2.5mm jack output for a shutter sync.
+This enables the ability to scan automatically with separate RGB channels.
+This feature is enabled when the 2.5mm jack is plugged in.
+I will update the README when my PCBs arrive and I successfully test the feature. 
 
 In the distant future I plan on incorporating this into my enlarger to print 4x5 (and 120) negatives.
 I no longer shoot 35mm and probably will not produce a 35mm mask for scanning and printing.
